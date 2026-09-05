@@ -19,8 +19,29 @@
   h1,h2,h3,p,li,.bubble{overflow-wrap:anywhere}
   .row>*,.grid>*,.price>*{min-width:0}
 
-  /* topo */
-  nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:14px}
+  html{scroll-behavior:smooth}
+  section,header{scroll-margin-top:72px}
+
+  /* topo fixo */
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(11,13,16,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
+  .topbar.scrolled{border-bottom-color:var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:14px}
+  .nav-links a{position:relative;padding:6px 0;transition:color .15s}
+  .nav-links a.on{color:var(--ink)}
+  .nav-links a.on:after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--acc);border-radius:2px}
+  .burger{display:none;background:transparent;border:1px solid var(--line);color:var(--ink);border-radius:10px;width:42px;height:38px;font-size:20px;line-height:1;cursor:pointer}
+  @media(max-width:760px){.burger{display:inline-flex;align-items:center;justify-content:center}.nav-cta{display:none}}
+  .drawer{display:none;border-top:1px solid var(--line);padding:8px 0 14px}
+  .drawer a{display:block;padding:12px 4px;text-decoration:none;font-weight:600;border-bottom:1px solid var(--line);min-height:38px}
+  .drawer a:last-child{border-bottom:0;color:var(--acc)}
+  .drawer.open{display:block}
+
+  /* voltar ao topo */
+  #topo{position:fixed;right:18px;bottom:18px;z-index:60;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--ink);font-size:20px;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.4);opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .2s,transform .2s}
+  #topo.show{opacity:1;pointer-events:auto;transform:none}
+  #topo:hover{border-color:var(--acc);color:var(--acc)}
+  @media(max-width:760px){#topo{right:14px;bottom:14px}}
+  .light #topo{}
   .logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.02em;text-decoration:none}
   .logo i{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--acc),#19a862);display:inline-block}
   .nav-cta{background:var(--acc);color:var(--acc-ink);font-weight:700;padding:10px 16px;border-radius:10px;text-decoration:none;min-height:38px;white-space:nowrap}
@@ -99,53 +120,72 @@
 </head>
 <body>
 
-<div class="wrap">
-  <nav>
-    <a class="logo" href="#"><i></i>Cockpit do Dono</a>
-    <div class="nav-links"><a href="#servicos">Serviços</a><a href="#oferta">Oferta de entrada</a><a href="#como">Como funciona</a><a href="#faq">Perguntas</a></div>
-    <a class="nav-cta" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20Cockpit%20do%20Dono%20na%20minha%20loja" target="_blank" rel="noopener">Falar no WhatsApp</a>
-  </nav>
+<div class="topbar" id="topbar">
+  <div class="wrap">
+    <nav>
+      <a class="logo" href="#inicio"><i></i>Cockpit do Dono</a>
+      <div class="nav-links"><a href="#servicos">Serviços</a><a href="#oferta">Oferta de entrada</a><a href="#como">Como funciona</a><a href="#faq">Perguntas</a></div>
+      <a class="nav-cta" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20Cockpit%20do%20Dono%20na%20minha%20loja" target="_blank" rel="noopener">Falar no WhatsApp</a>
+      <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    </nav>
+    <div class="drawer" id="drawer">
+      <a href="#servicos">Serviços</a>
+      <a href="#oferta">Oferta de entrada</a>
+      <a href="#como">Como funciona</a>
+      <a href="#faq">Perguntas</a>
+      <a href="https://wa.me/5511971039322?text=Quero%20ver%20o%20Cockpit%20do%20Dono%20na%20minha%20loja" target="_blank" rel="noopener">Falar no WhatsApp →</a>
+    </div>
+  </div>
 </div>
 
-<header>
+<header id="inicio">
   <div class="wrap">
     <div class="row">
       <div>
         <span class="tag">IA e automação para o comércio</span>
         <h1>Sua loja no WhatsApp, <em>todo dia às 7h.</em></h1>
-        <p class="sub">O que vendeu ontem, o que está parado no estoque e quem parou de comprar. Pronto, com nome e valor, no lugar onde você já olha. Sem abrir planilha, sem abrir sistema.</p>
+        <p class="sub">Vendas contra o mês anterior, produtos em queda, estoque em risco, clientes fora do ciclo e pedidos travados. Com valor em cada linha e as ações do dia no fim. Sem abrir planilha, sem abrir sistema.</p>
         <div class="ctas">
           <a class="cta" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20Cockpit%20do%20Dono%20na%20minha%20loja" target="_blank" rel="noopener">Quero ver na minha loja · 10 min</a>
           <a class="cta ghost" href="#oferta">Ver a oferta de entrada</a>
         </div>
       </div>
       <div class="phone">
-        <div class="bubble">☀️ <b>Bom dia! Resumo de Loja Exemplo · 04/set</b>
+        <div class="bubble">📊 <b>Loja Exemplo · Resumo gerencial · sex 04/set</b>
 
-💰 <b>Vendas</b>
-Ontem: R$ 2.318,40 em 17 pedidos
-Mês até ontem: R$ 9.874,10 em 71 pedidos, ticket R$ 139,07
-▲ 6,2% contra 01/ago a 04/ago (R$ 9.297,30)
+<b>1. Vendas</b>
+Ontem: R$ 2.003 · 11 pedidos · ticket R$ 182
+Mês (01 a 04/set): R$ 9.750 · 53 pedidos
+▲ 38,4% vs 01 a 04/ago (R$ 7.043)
 
-📦 <b>Estoque</b>
-Zera em menos de 7 dias:
-• Creatina 500g: 3 un, dura 4 dias
-• Whey Chocolate 900g: 3 un, dura 2 dias
-Parado há 30+ dias: 2 itens, R$ 840,00 a custo
+<b>2. Produtos (7 dias)</b>
+Top 3: Whey Baunilha R$ 2.099 (11%) · Isolado Chocolate R$ 1.979 · Colágeno R$ 1.438
+Em queda: Whey Chocolate 54%▼ · Creatina 300g 36%▼
 
-👥 <b>Clientes</b>
-18 passaram do ciclo de recompra, 4 no momento ideal:
-• Mariana Costa: a cada 28 dias, sem comprar há 33, R$ 1.240,00
-• Diego Rocha: a cada 21 dias, sem comprar há 29, R$ 980,00
+<b>3. Estoque</b>
+Risco de ruptura (≤ 7 dias): 5 itens · R$ 3.641 de venda semanal em risco
+• Whey Chocolate 900g: 3 un, 2 dias de cobertura
+Capital parado (30+ dias): 2 itens · R$ 840 a custo
 
-⚠️ <b>Pedidos com problema</b>
-2 sem rastreio, 1 sem pagamento</div>
+<b>4. Clientes</b>
+Fora do ciclo de recompra: 3 · R$ 2.153 de histórico
+• Débora Souza: ciclo 20d, 21d sem comprar, R$ 1.014
+Compra única sem retorno: 163 · R$ 27.571
+
+<b>5. Pedidos</b>
+Com pendência: 13 · R$ 1.868 retidos
+3 sem pagamento · 10 sem rastreio
+
+<b>Ações de hoje</b>
+1. Repor Whey Chocolate e Creatina 500g
+2. Contatar Débora Souza (momento ideal)
+3. Cobrar 3 pedidos sem pagamento (R$ 564)</div>
         <div class="stamp">07:00 ✓✓</div>
       </div>
     </div>
 
     <div class="proof">
-      <div><strong>5 blocos</strong><span>vendas, produtos, estoque, clientes e pedidos, todo dia</span></div>
+      <div><strong>5 blocos + ações</strong><span>vendas, produtos, estoque, clientes, pedidos e o que fazer hoje</span></div>
       <div><strong>7 dias úteis</strong><span>da conversa à primeira mensagem na sua loja</span></div>
       <div><strong>Leitura apenas</strong><span>o agente nunca altera nada na sua loja</span></div>
       <div><strong>190+ pessoas</strong><span>usam diariamente o CRM e o bot que desenhei para um distribuidor nacional</span></div>
@@ -240,7 +280,28 @@ Parado há 30+ dias: 2 itens, R$ 840,00 a custo
   <div class="wrap">
     <span>Cockpit do Dono · Rodrigo Roque · IA e automação para o comércio</span>
     <span>Os números da demonstração são de uma loja fictícia.</span>
+    <a href="#inicio" style="text-decoration:none">↑ Voltar ao topo</a>
   </div>
 </footer>
+
+<button id="topo" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
+
+<script>
+(function(){
+  var topo=document.getElementById('topo'),bar=document.getElementById('topbar'),burger=document.getElementById('burger'),drawer=document.getElementById('drawer');
+  function onScroll(){var y=window.scrollY||document.documentElement.scrollTop;topo.classList.toggle('show',y>500);bar.classList.toggle('scrolled',y>10);}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  topo.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  burger.addEventListener('click',function(){var open=drawer.classList.toggle('open');burger.setAttribute('aria-expanded',open);burger.textContent=open?'✕':'☰';});
+  drawer.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){drawer.classList.remove('open');burger.textContent='☰';burger.setAttribute('aria-expanded','false');});});
+  /* seção ativa no menu */
+  var links=[].slice.call(document.querySelectorAll('.nav-links a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));}).filter(Boolean);
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id);});}});},{rootMargin:'-40% 0px -55% 0px',threshold:0});
+    secs.forEach(function(s){io.observe(s);});
+  }
+})();
+</script>
 </body>
 </html>
