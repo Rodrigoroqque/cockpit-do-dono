@@ -8,8 +8,11 @@
 <style>
   :root{--ink:#111;--muted:#5b5b5b;--bg:#fafaf7;--card:#fff;--acc:#1f7a4d;--acc2:#e8f5ee;--line:#e6e6e0}
   *{box-sizing:border-box}
+  html,body{overflow-x:hidden}
   body{margin:0;font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg)}
   .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+  .row>*,.grid>*,.price>*{min-width:0}
+  h1,h2,h3,p,li,.bubble{overflow-wrap:anywhere}
   header{padding:56px 0 24px}
   h1{font-size:clamp(28px,5vw,44px);line-height:1.12;margin:0 0 14px;letter-spacing:-.01em}
   .sub{font-size:clamp(17px,2.4vw,21px);color:var(--muted);max-width:640px;margin:0 0 26px}
@@ -22,11 +25,11 @@
   .bubble b{font-weight:700}
   section{padding:34px 0;border-top:1px solid var(--line)}
   h2{font-size:24px;margin:0 0 16px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:14px}
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
   .card h3{margin:0 0 6px;font-size:17px}
   .card p{margin:0;color:var(--muted);font-size:15px}
-  .price{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+  .price{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:14px}
   .price .card.big{border-color:var(--acc);background:var(--acc2)}
   .num{font-size:32px;font-weight:800;margin:6px 0 2px}
   ul.clean{padding-left:18px;margin:8px 0 0;color:var(--muted)}
