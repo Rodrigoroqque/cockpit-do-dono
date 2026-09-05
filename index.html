@@ -3,66 +3,124 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cockpit do Dono · sua loja no WhatsApp às 7h</title>
-<meta name="description" content="Todo dia às 7h você recebe no WhatsApp o que vendeu ontem, o que está parado no estoque e quem parou de comprar. Sem abrir planilha, sem abrir sistema.">
+<title>Cockpit do Dono · IA e automação para o comércio</title>
+<meta name="description" content="Agentes, bots de WhatsApp, painéis e CRM para lojas online e distribuidoras pequenas. Oferta de entrada: sua loja no WhatsApp todo dia às 7h.">
 <style>
-  :root{--ink:#111;--muted:#5b5b5b;--bg:#fafaf7;--card:#fff;--acc:#1f7a4d;--acc2:#e8f5ee;--line:#e6e6e0}
+  :root{
+    --bg:#0b0d10;--bg2:#12151a;--panel:#171b21;--line:#252b34;--ink:#f3f5f7;--muted:#9aa4b2;
+    --acc:#2fe08a;--acc-ink:#062b17;--wa:#25D366;--warn:#ffb454;
+    --light-bg:#f6f7f9;--light-panel:#fff;--light-ink:#0e1116;--light-muted:#5d6673;--light-line:#e6e9ee
+  }
   *{box-sizing:border-box}
   html,body{overflow-x:hidden}
-  body{margin:0;font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg)}
-  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
-  .row>*,.grid>*,.price>*{min-width:0}
+  body{margin:0;font:16px/1.55 "Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
   h1,h2,h3,p,li,.bubble{overflow-wrap:anywhere}
-  header{padding:56px 0 24px}
-  h1{font-size:clamp(28px,5vw,44px);line-height:1.12;margin:0 0 14px;letter-spacing:-.01em}
-  .sub{font-size:clamp(17px,2.4vw,21px);color:var(--muted);max-width:640px;margin:0 0 26px}
-  .cta{display:inline-block;background:#25D366;color:#fff;font-weight:700;padding:14px 22px;border-radius:12px;text-decoration:none;font-size:17px;min-height:38px}
-  .cta.sec{background:var(--acc)}
-  .row{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:start}
+  .row>*,.grid>*,.price>*{min-width:0}
+
+  /* topo */
+  nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:14px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.02em;text-decoration:none}
+  .logo i{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--acc),#19a862);display:inline-block}
+  .nav-cta{background:var(--acc);color:var(--acc-ink);font-weight:700;padding:10px 16px;border-radius:10px;text-decoration:none;min-height:38px;white-space:nowrap}
+  .nav-links{display:flex;gap:18px;color:var(--muted);font-size:14px}
+  .nav-links a{text-decoration:none}
+  @media(max-width:760px){.nav-links{display:none}}
+
+  /* herói */
+  header{padding:54px 0 40px;background:
+     radial-gradient(1200px 500px at 20% -10%,rgba(47,224,138,.14),transparent 60%),
+     radial-gradient(800px 400px at 90% 10%,rgba(37,211,102,.10),transparent 60%)}
+  .tag{display:inline-block;border:1px solid var(--line);color:var(--acc);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:999px;margin-bottom:18px;background:rgba(47,224,138,.06)}
+  h1{font-size:clamp(34px,5.6vw,60px);line-height:1.04;margin:0 0 18px;letter-spacing:-.02em;font-weight:800}
+  h1 em{font-style:normal;color:var(--acc)}
+  .sub{font-size:clamp(17px,2.2vw,21px);color:var(--muted);max-width:620px;margin:0 0 28px}
+  .cta{display:inline-flex;align-items:center;gap:10px;background:var(--wa);color:#04210f;font-weight:800;padding:15px 22px;border-radius:12px;text-decoration:none;font-size:17px;min-height:38px}
+  .cta.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .ctas{display:flex;gap:12px;flex-wrap:wrap}
+  .row{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
   @media(max-width:760px){.row{grid-template-columns:1fr}}
-  .phone{background:#e5ddd5;border-radius:22px;padding:14px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(0,0,0,.08)}
-  .bubble{background:#fff;border-radius:12px;padding:12px 14px;font-size:14px;white-space:pre-wrap;line-height:1.45;box-shadow:0 1px 1px rgba(0,0,0,.08)}
-  .bubble b{font-weight:700}
-  section{padding:34px 0;border-top:1px solid var(--line)}
-  h2{font-size:24px;margin:0 0 16px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:14px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
-  .card h3{margin:0 0 6px;font-size:17px}
+
+  /* celular */
+  .phone{background:#0f1720;border:1px solid var(--line);border-radius:26px;padding:14px;box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.03) inset;position:relative}
+  .phone:before{content:"";display:block;width:90px;height:6px;border-radius:6px;background:#222a35;margin:2px auto 12px}
+  .bubble{background:#1f2c34;color:#e9edef;border-radius:12px;padding:12px 14px;font-size:13.5px;white-space:pre-wrap;line-height:1.45}
+  .bubble b{color:#fff}
+  .stamp{font-size:11px;color:#8696a0;text-align:right;margin-top:6px}
+
+  /* provas */
+  .proof{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:12px;margin-top:36px}
+  .proof div{border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--bg2)}
+  .proof strong{display:block;font-size:26px;letter-spacing:-.02em}
+  .proof span{color:var(--muted);font-size:14px}
+
+  /* seções */
+  section{padding:64px 0;border-top:1px solid var(--line)}
+  .kicker{color:var(--acc);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin:0 0 10px}
+  h2{font-size:clamp(26px,3.6vw,38px);margin:0 0 12px;letter-spacing:-.02em;line-height:1.1}
+  .lead{color:var(--muted);max-width:680px;margin:0 0 28px;font-size:17px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:14px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px}
+  .card h3{margin:0 0 8px;font-size:17px}
   .card p{margin:0;color:var(--muted);font-size:15px}
-  .price{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:14px}
-  .price .card.big{border-color:var(--acc);background:var(--acc2)}
-  .num{font-size:32px;font-weight:800;margin:6px 0 2px}
-  ul.clean{padding-left:18px;margin:8px 0 0;color:var(--muted)}
-  .faq details{border-bottom:1px solid var(--line);padding:10px 0}
-  .faq summary{cursor:pointer;font-weight:600;min-height:38px;display:flex;align-items:center}
-  footer{padding:30px 0 50px;color:var(--muted);font-size:14px}
-  .tag{display:inline-block;background:var(--acc2);color:var(--acc);font-weight:700;font-size:13px;padding:4px 10px;border-radius:999px;margin-bottom:14px}
+  .card .n{color:var(--acc);font-weight:800;font-size:13px;letter-spacing:.06em;margin-bottom:8px;display:block}
+  .card.hl{border-color:rgba(47,224,138,.5);background:linear-gradient(180deg,rgba(47,224,138,.08),transparent 60%),var(--panel)}
+  .badge{display:inline-block;background:var(--acc);color:var(--acc-ink);font-weight:800;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:6px;margin-left:8px;vertical-align:middle}
+
+  /* oferta (claro) */
+  .light{background:var(--light-bg);color:var(--light-ink)}
+  .light .kicker{color:#15803d}
+  .light .lead,.light .card p,.light .proof span{color:var(--light-muted)}
+  .light .card{background:var(--light-panel);border-color:var(--light-line)}
+  .light .card.hl{border-color:#15803d;background:#effaf3}
+  .price{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;align-items:start}
+  @media(max-width:760px){.price{grid-template-columns:1fr}}
+  .num{font-size:44px;font-weight:800;letter-spacing:-.03em;margin:8px 0 0;line-height:1}
+  .num small{font-size:16px;font-weight:600;color:var(--light-muted)}
+  ul.clean{padding-left:18px;margin:14px 0 0}
+  ul.clean li{margin:6px 0}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:14px;counter-reset:s}
+  .steps .card{position:relative;padding-top:22px}
+  .steps .card:before{counter-increment:s;content:counter(s,decimal-leading-zero);position:absolute;top:14px;right:16px;color:var(--acc);font-weight:800;font-size:13px;letter-spacing:.08em}
+
+  /* faq + final */
+  .faq details{border-bottom:1px solid var(--line);padding:12px 0}
+  .faq summary{cursor:pointer;font-weight:600;min-height:38px;display:flex;align-items:center;list-style:none}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary:before{content:"+";color:var(--acc);font-weight:800;margin-right:12px;width:14px}
+  .faq details[open] summary:before{content:"−"}
+  .faq p{color:var(--muted);margin:6px 0 4px 26px}
+  .final{text-align:center;background:
+     radial-gradient(700px 300px at 50% 120%,rgba(47,224,138,.18),transparent 60%)}
+  footer{padding:28px 0 56px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <span class="tag">Para dono de loja online e distribuidora pequena</span>
-    <h1>Sua loja no WhatsApp, todo dia às 7h.</h1>
-    <p class="sub">O que vendeu ontem, o que está parado no estoque e quem parou de comprar. Pronto, no lugar onde você já olha. Sem abrir planilha, sem abrir sistema.</p>
-    <a class="cta" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20Cockpit%20do%20Dono%20na%20minha%20loja" target="_blank" rel="noopener">Quero ver na minha loja (10 min)</a>
-  </header>
 
-  <div class="row">
-    <div>
-      <h2>Como chega</h2>
-      <p style="color:var(--muted)">Uma mensagem por dia, 5 blocos, com nome e valor. Você responde com uma pergunta e recebe o dado.</p>
-      <div class="grid">
-        <div class="card"><h3>💰 Vendas</h3><p>Ontem e mês até ontem, contra o mesmo trecho do mês anterior. Cancelado nunca entra.</p></div>
-        <div class="card"><h3>🏆 Produtos</h3><p>Top 5 da semana e os que caíram contra a semana anterior.</p></div>
-        <div class="card"><h3>📦 Estoque</h3><p>O que zera em menos de 7 dias e o que está parado há 30 dias, em reais a custo.</p></div>
-        <div class="card"><h3>👥 Clientes</h3><p>Quem passou do próprio ciclo de recompra, do mais quente ao mais frio, e quem comprou uma vez e não voltou.</p></div>
-        <div class="card"><h3>⚠️ Pedidos</h3><p>Sem pagamento, sem rastreio, sem entrega. Antes de virar reclamação.</p></div>
-        <div class="card"><h3>💬 Pergunta livre</h3><p>"Quanto vendi de creatina em agosto?" Responde com número e comparação.</p></div>
+<div class="wrap">
+  <nav>
+    <a class="logo" href="#"><i></i>Cockpit do Dono</a>
+    <div class="nav-links"><a href="#servicos">Serviços</a><a href="#oferta">Oferta de entrada</a><a href="#como">Como funciona</a><a href="#faq">Perguntas</a></div>
+    <a class="nav-cta" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20Cockpit%20do%20Dono%20na%20minha%20loja" target="_blank" rel="noopener">Falar no WhatsApp</a>
+  </nav>
+</div>
+
+<header>
+  <div class="wrap">
+    <div class="row">
+      <div>
+        <span class="tag">IA e automação para o comércio</span>
+        <h1>Sua loja no WhatsApp, <em>todo dia às 7h.</em></h1>
+        <p class="sub">O que vendeu ontem, o que está parado no estoque e quem parou de comprar. Pronto, com nome e valor, no lugar onde você já olha. Sem abrir planilha, sem abrir sistema.</p>
+        <div class="ctas">
+          <a class="cta" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20Cockpit%20do%20Dono%20na%20minha%20loja" target="_blank" rel="noopener">Quero ver na minha loja · 10 min</a>
+          <a class="cta ghost" href="#oferta">Ver a oferta de entrada</a>
+        </div>
       </div>
-    </div>
-    <div class="phone">
-      <div class="bubble">☀️ <b>Bom dia! Resumo de Loja Exemplo · 04/set</b>
+      <div class="phone">
+        <div class="bubble">☀️ <b>Bom dia! Resumo de Loja Exemplo · 04/set</b>
 
 💰 <b>Vendas</b>
 Ontem: R$ 2.318,40 em 17 pedidos
@@ -77,68 +135,112 @@ Parado há 30+ dias: 2 itens, R$ 840,00 a custo
 
 👥 <b>Clientes</b>
 18 passaram do ciclo de recompra, 4 no momento ideal:
-• Mariana Costa: compra a cada 28 dias, sem comprar há 33, R$ 1.240,00 no histórico
-• Diego Rocha: compra a cada 21 dias, sem comprar há 29, R$ 980,00 no histórico
+• Mariana Costa: a cada 28 dias, sem comprar há 33, R$ 1.240,00
+• Diego Rocha: a cada 21 dias, sem comprar há 29, R$ 980,00
 
 ⚠️ <b>Pedidos com problema</b>
-2 sem rastreio, 1 sem pagamento
-• P00812: sem rastreio há 3 dias, R$ 219,90</div>
+2 sem rastreio, 1 sem pagamento</div>
+        <div class="stamp">07:00 ✓✓</div>
+      </div>
+    </div>
+
+    <div class="proof">
+      <div><strong>5 blocos</strong><span>vendas, produtos, estoque, clientes e pedidos, todo dia</span></div>
+      <div><strong>7 dias úteis</strong><span>da conversa à primeira mensagem na sua loja</span></div>
+      <div><strong>Leitura apenas</strong><span>o agente nunca altera nada na sua loja</span></div>
+      <div><strong>190+ pessoas</strong><span>usam diariamente o CRM e o bot que desenhei para um distribuidor nacional</span></div>
     </div>
   </div>
+</header>
 
-  <section>
-    <h2>Como funciona</h2>
+<section id="servicos">
+  <div class="wrap">
+    <p class="kicker">O que eu faço</p>
+    <h2>Agentes, bots, painéis e CRM para quem vende.</h2>
+    <p class="lead">Carreira em gestão comercial e CRM, agora aplicada com IA para lojas online e distribuidoras pequenas. Cada serviço tem escopo fechado e preço fechado.</p>
     <div class="grid">
-      <div class="card"><h3>1. Conecta</h3><p>Token de leitura da sua plataforma (Nuvemshop, Shopify, Tray, Loja Integrada) ou exportação diária do ERP (Bling, Tiny, Omie). Leitura apenas, não altera nada na loja.</p></div>
-      <div class="card"><h3>2. Valida</h3><p>Na primeira semana conferimos os números juntos, contra o seu caixa e o seu estoque.</p></div>
-      <div class="card"><h3>3. Chega às 7h</h3><p>Todo dia, no seu WhatsApp. Um painel web com os mesmos números para quem quiser ver no computador.</p></div>
+      <div class="card hl"><span class="n">ENTRADA</span><h3>Cockpit do Dono <span class="badge">7 dias</span></h3><p>Resumo diário no WhatsApp com pergunta livre e painel web. É por onde todo cliente começa.</p></div>
+      <div class="card"><span class="n">ATENDIMENTO</span><h3>Bot de atendimento na loja</h3><p>Prazo, rastreio, política de troca, dúvida de produto. Responde 24h e passa para você quando precisa de gente.</p></div>
+      <div class="card"><span class="n">RECOMPRA</span><h3>Réguas de WhatsApp</h3><p>Carrinho abandonado, rastreio, recompra no ciclo de cada cliente. Com trava de não repetir e teto por dia.</p></div>
+      <div class="card"><span class="n">VENDAS</span><h3>CRM de carteira para vendedor</h3><p>Quem visitar hoje, quem está esfriando, o que oferecer. No celular, para quem vende na rua.</p></div>
+      <div class="card"><span class="n">GESTÃO</span><h3>Painéis e relatórios</h3><p>Do dado cru da plataforma ou do ERP ao painel que o dono abre de manhã. Sem licença cara.</p></div>
+      <div class="card"><span class="n">OPERAÇÃO</span><h3>Agente do dono com ação</h3><p>Preço, estoque e promoção propostos pelo agente e aplicados só com a sua aprovação.</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section>
-    <h2>Quanto custa</h2>
+<section id="oferta" class="light">
+  <div class="wrap">
+    <p class="kicker">Oferta de entrada</p>
+    <h2>Cockpit do Dono</h2>
+    <p class="lead">Uma mensagem por dia, 5 blocos, com nome e valor. Você responde com uma pergunta e recebe o dado.</p>
     <div class="price">
-      <div class="card big">
-        <h3>Cockpit do Dono</h3>
-        <div class="num">R$ 450<span style="font-size:15px;font-weight:500">/mês</span></div>
-        <p>+ R$ 2.000 de setup, pronto em 7 dias úteis</p>
+      <div class="card hl">
+        <div class="num">R$ 450<small>/mês</small></div>
+        <p style="margin-top:8px">+ R$ 2.000 de setup, pronto em 7 dias úteis</p>
         <ul class="clean">
-          <li>Mensagem diária com os 5 blocos</li>
-          <li>Pergunta livre pelo WhatsApp</li>
-          <li>Painel web</li>
-          <li>Suporte por WhatsApp em horário comercial</li>
-          <li>30 dias: não valeu, cancela e fica com o painel do mês</li>
+          <li>💰 Vendas de ontem e do mês contra o mesmo trecho do mês anterior. Cancelado nunca entra.</li>
+          <li>🏆 Top 5 da semana e os produtos que caíram.</li>
+          <li>📦 O que zera em menos de 7 dias e o que está parado há 30, em reais a custo.</li>
+          <li>👥 Quem passou do próprio ciclo de recompra e quem comprou uma vez e não voltou.</li>
+          <li>⚠️ Pedido sem pagamento, sem rastreio, sem entrega.</li>
+          <li>💬 Pergunta livre pelo WhatsApp: "quanto vendi de creatina em agosto?"</li>
+          <li>Painel web, suporte em horário comercial e 30 dias de garantia: não valeu, cancela.</li>
         </ul>
+        <p style="margin-top:18px"><a class="cta" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20Cockpit%20do%20Dono%20na%20minha%20loja" target="_blank" rel="noopener">Quero ver na minha loja</a></p>
       </div>
       <div class="card">
-        <h3>Depois, se quiser</h3>
-        <ul class="clean">
-          <li>Bot de atendimento na loja (prazo, rastreio, política, produto)</li>
-          <li>Régua de recompra e carrinho abandonado no WhatsApp</li>
-          <li>CRM de carteira para vendedor externo</li>
-          <li>Agente do dono com ação (preço, estoque, promoção) mediante aprovação</li>
-        </ul>
-        <p style="margin-top:10px">Cada um com preço fechado. Nada de escopo aberto.</p>
+        <h3>Funciona com</h3>
+        <p>Nuvemshop, Shopify, Tray e Loja Integrada por API. Bling, Tiny e Omie por exportação diária. Se tem API ou exporta CSV, conecta.</p>
+        <h3 style="margin-top:18px">Para quem</h3>
+        <p>Loja online com 30 a 500 pedidos por mês, ou distribuidora com 50 a 1.000 clientes ativos, cujo dono ainda descobre problema de estoque quando falta dinheiro.</p>
+        <h3 style="margin-top:18px">3 primeiras lojas</h3>
+        <p>Setup R$ 800 e mensal R$ 300 em troca de um caso publicado com o seu depoimento.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="faq">
-    <h2>Perguntas que todo dono faz</h2>
+<section id="como">
+  <div class="wrap">
+    <p class="kicker">Como funciona</p>
+    <h2>Da conversa à mensagem das 7h em uma semana.</h2>
+    <div class="steps">
+      <div class="card"><h3>Conversa de 10 min</h3><p>Você me mostra como descobre hoje o que vendeu e o que parou. Eu mostro a mensagem na loja de exemplo.</p></div>
+      <div class="card"><h3>Token de leitura</h3><p>Acesso de leitura à plataforma ou exportação diária do ERP. Nada de senha, nada de escrita.</p></div>
+      <div class="card"><h3>Validação junto</h3><p>Primeira semana conferimos os números contra o seu caixa e o seu estoque, linha por linha.</p></div>
+      <div class="card"><h3>Todo dia às 7h</h3><p>Mensagem no seu WhatsApp e painel web. Roda na nuvem, não depende de computador ligado.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="faq">
+  <div class="wrap">
+    <p class="kicker">Perguntas que todo dono faz</p>
+    <h2>Sem letra miúda.</h2>
     <details><summary>Já tenho relatório na plataforma.</summary><p>Tem. E você abre todo dia? A diferença é chegar pronto, com nome e valor, e responder pergunta.</p></details>
-    <details><summary>IA erra.</summary><p>O número vem do seu sistema. A IA só monta a frase. Na primeira semana você confere comigo, linha por linha.</p></details>
+    <details><summary>IA erra.</summary><p>O número vem do seu sistema, por consulta direta. A IA só escreve a frase. Na primeira semana você confere comigo.</p></details>
     <details><summary>Meu sistema é outro.</summary><p>Se tem API ou exporta CSV, conecta. Me diz qual e confirmo em 24 horas.</p></details>
-    <details><summary>É seguro?</summary><p>Acesso de leitura, nunca de escrita. Seus dados ficam só na sua conta, separados de qualquer outro cliente. Número de WhatsApp próprio do serviço.</p></details>
-    <details><summary>Quanto tempo do meu lado?</summary><p>Uma conversa de 10 minutos, o token de leitura e 3 conferências rápidas na primeira semana.</p></details>
-  </section>
+    <details><summary>É seguro?</summary><p>Acesso de leitura, nunca de escrita. Seus dados ficam separados de qualquer outro cliente. Número de WhatsApp próprio do serviço.</p></details>
+    <details><summary>Quanto tempo do meu lado?</summary><p>Uma conversa de 10 minutos, o token de leitura e três conferências rápidas na primeira semana.</p></details>
+    <details><summary>E se eu quiser mais?</summary><p>Bot de atendimento, réguas de recompra, CRM de carteira e agente com ação entram depois, cada um com escopo e preço fechados.</p></details>
+  </div>
+</section>
 
-  <section style="text-align:center">
+<section class="final">
+  <div class="wrap">
+    <p class="kicker">Próximo passo</p>
     <h2>Quer ver na sua loja?</h2>
-    <p style="color:var(--muted)">10 minutos numa chamada. Sem compromisso.</p>
+    <p class="lead" style="margin:0 auto 22px">10 minutos numa chamada. Sem compromisso.</p>
     <a class="cta" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20Cockpit%20do%20Dono%20na%20minha%20loja" target="_blank" rel="noopener">Chamar no WhatsApp</a>
-  </section>
+  </div>
+</section>
 
-  <footer>Cockpit do Dono · Rodrigo Roque · Os números da demonstração são de uma loja fictícia.</footer>
-</div>
+<footer>
+  <div class="wrap">
+    <span>Cockpit do Dono · Rodrigo Roque · IA e automação para o comércio</span>
+    <span>Os números da demonstração são de uma loja fictícia.</span>
+  </div>
+</footer>
 </body>
 </html>
