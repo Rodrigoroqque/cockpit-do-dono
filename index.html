@@ -125,9 +125,9 @@ h1 .risco:after{content:"";position:absolute;left:-.01em;right:-.01em;bottom:.06
 
 .fone-area{position:relative;display:flex;justify-content:center}
 .fone-area:before{content:"";position:absolute;inset:-8% -14%;background:radial-gradient(60% 50% at 50% 45%,rgba(37,211,102,.16),transparent 70%);pointer-events:none}
-.iphone{position:relative;width:min(352px,100%);aspect-ratio:390/840;background:#0a0c0b;border-radius:52px;padding:11px;box-shadow:0 50px 90px -30px rgba(17,19,15,.55),0 0 0 2px #23272a,0 0 0 3px #0a0c0b,0 0 0 4px rgba(255,255,255,.5)}
+.iphone{position:relative;width:min(352px,100%);aspect-ratio:390/862;background:#0a0c0b;border-radius:52px;padding:11px;box-shadow:0 50px 90px -30px rgba(17,19,15,.55),0 0 0 2px #23272a,0 0 0 3px #0a0c0b,0 0 0 4px rgba(255,255,255,.5)}
 .iphone:before{content:"";position:absolute;left:50%;top:20px;transform:translateX(-50%);width:104px;height:30px;background:#000;border-radius:18px;z-index:3}
-.screen{position:relative;width:100%;height:100%;border-radius:42px;overflow:hidden;background:#0b141a;display:flex;flex-direction:column;font:400 11.6px/1.36 var(--t)}
+.screen{position:relative;width:100%;height:100%;border-radius:42px;overflow:hidden;background:#0b141a;display:flex;flex-direction:column;font:400 11.3px/1.42 var(--t)}
 .status{height:50px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 26px 5px;font:600 13px var(--t);color:#fff;background:#202c33}
 .status .r{display:flex;gap:5px;align-items:center;font-size:11px}
 .wahead{background:#202c33;display:flex;align-items:center;gap:9px;padding:7px 11px 9px;color:#e9edef}
@@ -143,7 +143,7 @@ h1 .risco:after{content:"";position:absolute;left:-.01em;right:-.01em;bottom:.06
   background-image:radial-gradient(rgba(255,255,255,.032) 1px,transparent 1px),radial-gradient(rgba(255,255,255,.022) 1px,transparent 1px);background-size:22px 22px,34px 34px;background-position:0 0,11px 11px}
 .chat::-webkit-scrollbar{display:none}
 .dia{margin:0 auto 9px;width:max-content;background:#182229;color:#8696a0;font-size:11px;padding:4px 10px;border-radius:8px}
-.msg{position:relative;background:#202c33;color:#e9edef;border-radius:9px;border-top-left-radius:2px;padding:8px 10px 17px;max-width:93%;white-space:pre-wrap;box-shadow:0 1px 1px rgba(0,0,0,.35);opacity:0;transform:translateY(9px);transition:opacity .26s,transform .26s;margin-bottom:7px}
+.msg{position:relative;background:#202c33;color:#e9edef;border-radius:9px;border-top-left-radius:2px;padding:8px 10px 16px;max-width:93%;white-space:pre-wrap;box-shadow:0 1px 1px rgba(0,0,0,.35);opacity:0;transform:translateY(9px);transition:opacity .26s,transform .26s;margin-bottom:7px}
 .msg.on{opacity:1;transform:none}
 .msg:before{content:"";position:absolute;left:-7px;top:0;border:8px solid transparent;border-top-color:#202c33;border-right-color:#202c33;border-radius:0 0 0 4px}
 .msg b{color:#fff}
@@ -369,28 +369,20 @@ footer .mono{color:var(--tinta3)}
             <div class="chat" id="chat">
               <div class="dia">Hoje</div>
               <div class="msg" id="m1"><span class="h">📊 Loja Exemplo · Resumo gerencial · sex 04/set</span>
-
 <b>1. Vendas</b>
 Ontem: R$ 2.003 · 11 pedidos · ticket R$ 182
-Mês (01 a 04/set): R$ 9.750 · 53 pedidos
-<span class="up">▲ 38,4%</span> vs 01 a 04/ago (R$ 7.043)
-
+Mês: R$ 9.750 · 53 pedidos · <span class="up">▲ 38,4%</span> vs ago
 <b>2. Produtos (7 dias)</b>
-Top 3: Whey Baunilha <span class="up">R$ 2.099</span> · Isolado Choc. R$ 1.979 · Colágeno R$ 1.438
-Em queda: Whey Chocolate <span class="dn">54%▼</span> · Creatina 300g <span class="dn">36%▼</span>
-
+Top: Whey Baunilha <span class="up">R$ 2.099</span> · Isolado R$ 1.979
+Em queda: Whey Chocolate <span class="dn">54%▼</span>
 <b>3. Estoque</b>
-Ruptura em ≤ 7 dias: <span class="dn">5 itens</span> · <span class="dn">R$ 3.641/semana em risco</span>
-• Whey Chocolate 900g: 3 un, <span class="dn">2 dias de cobertura</span>
-Capital parado 30+ dias: 2 itens · <span class="wn">R$ 840 a custo</span>
-
+Ruptura ≤ 7 dias: <span class="dn">5 itens · R$ 3.641/semana</span>
+Capital parado 30+ dias: <span class="wn">R$ 840 a custo</span>
 <b>4. Clientes</b>
-Fora do ciclo de recompra: <span class="wn">3</span> · R$ 2.153 de histórico
-• Débora Souza: ciclo 20d, <span class="wn">21d sem comprar</span>, R$ 1.014
-
+Fora do ciclo: <span class="wn">3 · R$ 2.153</span>
+• Débora Souza: ciclo 20d, <span class="wn">21d sem comprar</span>
 <b>5. Pedidos</b>
-<span class="wn">13 com pendência</span> · <span class="dn">R$ 1.868 retidos</span> (3 sem pagamento, 10 sem rastreio)
-
+<span class="wn">13 com pendência</span> · <span class="dn">R$ 1.868 retidos</span>
 <b>Ações de hoje</b>
 1. Repor Whey Chocolate e Creatina 500g
 2. Contatar Débora Souza (momento ideal)
@@ -707,8 +699,9 @@ Fora do ciclo de recompra: <span class="wn">3</span> · R$ 2.153 de histórico
     msgs.forEach(function(m){m.classList.remove('on');});chat.scrollTop=0;
     await esperar(800);
     typing(true);await esperar(1600);typing(false);
-    msgs[0].classList.add('on');chat.scrollTop=Math.max(0,msgs[0].offsetTop-6);
-    await esperar(1700);await rolar(fim(),4400);await esperar(1300);
+    msgs[0].classList.add('on');chat.scrollTop=0;
+    await esperar(1700);
+    if(fim()>4){await rolar(fim(),3200);await esperar(900);}else{await esperar(1400);}
     await digitar('quanto vendi de creatina em agosto?');
     msgs[1].classList.add('on');await rolar(fim(),400);await esperar(400);
     await responde(msgs[2]);await esperar(2500);
