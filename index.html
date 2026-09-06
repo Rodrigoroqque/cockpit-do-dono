@@ -62,8 +62,22 @@
   .cta:hover{filter:brightness(1.06);transform:translateY(-1px)}
   .cta.sm{padding:10px 16px;min-height:38px;font-size:14px}
   .cta svg{width:18px;height:18px;flex:none}
-  .burger{display:none;background:transparent;border:1px solid var(--line);color:var(--ink);border-radius:10px;width:42px;height:38px;font-size:20px;line-height:1;cursor:pointer}
-  @media(max-width:760px){.burger{display:inline-flex;align-items:center;justify-content:center}.nav-links,.nav .cta{display:none}}
+  .burger{display:none;background:transparent;border:0;color:var(--ink);width:40px;height:40px;font-size:22px;line-height:1;cursor:pointer;padding:0;border-radius:10px}
+  .burger:active{background:rgba(255,255,255,.06)}
+  .nav-right{display:flex;align-items:center;gap:6px}
+  .wa-mini{display:none;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(37,211,102,.14);color:var(--acc);text-decoration:none}
+  .wa-mini svg{width:20px;height:20px}
+  @media(max-width:760px){
+    nav{padding:8px 0}
+    .logo{font-size:16px}.logo svg{width:26px;height:26px}
+    .burger,.wa-mini{display:inline-flex}
+    .nav-links,.nav .cta{display:none}
+    header{padding:26px 0 28px}
+    .tag{font-size:11px;letter-spacing:.06em;padding:5px 10px;margin-bottom:14px}
+    h1{font-size:clamp(32px,9.2vw,40px)}
+    .sub{font-size:16px;margin-bottom:20px}
+    .micro{font-size:13px}
+  }
   .drawer{display:none;border-top:1px solid var(--line);padding:6px 0 12px}
   .drawer a{display:block;padding:12px 4px;text-decoration:none;font-weight:600;border-bottom:1px solid var(--line);min-height:44px}
   .drawer a:last-child{border-bottom:0;color:var(--acc)}
@@ -167,7 +181,8 @@
   @media(min-width:761px){footer{padding-bottom:56px}}
 
   /* barra inferior mobile + voltar ao topo */
-  .stickybar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:55;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(11,13,16,.92);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+  .stickybar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:55;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(11,13,16,.92);backdrop-filter:blur(10px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .25s}
+  .stickybar.show{transform:none}
   .stickybar .cta{width:100%}
   @media(max-width:760px){.stickybar{display:block}}
   #topo{position:fixed;right:16px;bottom:16px;z-index:60;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--ink);font-size:20px;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.4);opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .2s,transform .2s}
@@ -185,7 +200,10 @@
       <a class="logo" href="#inicio" aria-label="Cockpit do Dono, início"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#161a20"/><path d="M14 44h8V28h-8zm14 0h8V16h-8zm14 0h8V34h-8z" fill="#25D366"/></svg>Cockpit do Dono</a>
       <div class="nav-links"><a href="#solucao">O que chega</a><a href="#como">Como funciona</a><a href="#oferta">Preço</a><a href="#faq">Dúvidas</a></div>
       <a class="cta sm" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20Cockpit%20do%20Dono%20na%20minha%20loja" target="_blank" rel="noopener">Quero ver na minha loja</a>
-      <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer">☰</button>
+      <div class="nav-right">
+        <a class="wa-mini" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20Cockpit%20do%20Dono%20na%20minha%20loja" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 1.8a8.2 8.2 0 1 1-4.2 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8m-3 4.4c-.2 0-.5 0-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.2 5 4.4 2.5 1 3 .8 3.5.7.6 0 1.7-.7 2-1.4.2-.7.2-1.2.1-1.4l-.5-.3-2-1c-.3 0-.5-.1-.7.2l-.9 1.1c-.2.2-.3.2-.6.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.4 0-.5L10.7 9c-.2-.6-.5-.5-.7-.5h-.6z"/></svg></a>
+        <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer">☰</button>
+      </div>
     </nav>
     <div class="drawer" id="drawer">
       <a href="#solucao">O que chega</a>
@@ -201,10 +219,10 @@
   <div class="wrap">
     <div class="row">
       <div>
-        <span class="tag">Para dono de loja online e distribuidora</span>
+        <span class="tag">Loja online e distribuidora</span>
         <h1>Sua loja no WhatsApp, <em>todo dia às 7h.</em></h1>
         <p class="sub">O que vendeu, o que vai faltar no estoque, quem parou de comprar e os pedidos travados. Com valor em cada linha e as três ações do dia. Sem abrir planilha, sem abrir sistema.</p>
-        <a class="cta" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20Cockpit%20do%20Dono%20na%20minha%20loja" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 1.8a8.2 8.2 0 1 1-4.2 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8m-3 4.4c-.2 0-.5 0-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.2 5 4.4 2.5 1 3 .8 3.5.7.6 0 1.7-.7 2-1.4.2-.7.2-1.2.1-1.4l-.5-.3-2-1c-.3 0-.5-.1-.7.2l-.9 1.1c-.2.2-.3.2-.6.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.4 0-.5L10.7 9c-.2-.6-.5-.5-.7-.5h-.6z"/></svg>Quero ver na minha loja</a>
+        <a class="cta" id="cta-heroi" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20Cockpit%20do%20Dono%20na%20minha%20loja" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 1.8a8.2 8.2 0 1 1-4.2 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8m-3 4.4c-.2 0-.5 0-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.2 5 4.4 2.5 1 3 .8 3.5.7.6 0 1.7-.7 2-1.4.2-.7.2-1.2.1-1.4l-.5-.3-2-1c-.3 0-.5-.1-.7.2l-.9 1.1c-.2.2-.3.2-.6.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.4 0-.5L10.7 9c-.2-.6-.5-.5-.7-.5h-.6z"/></svg>Quero ver na minha loja</a>
         <p class="micro">10 minutos numa chamada. Você vê a mensagem rodando numa loja de exemplo e sai sabendo se serve para a sua. <a href="#oferta">Ver preço</a>.</p>
       </div>
 
@@ -381,6 +399,11 @@ Fora do ciclo de recompra: 3 · R$ 2.153 de histórico
   topo.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
   burger.addEventListener('click',function(){var open=drawer.classList.toggle('open');burger.setAttribute('aria-expanded',open);burger.textContent=open?'✕':'☰';});
   drawer.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){drawer.classList.remove('open');burger.textContent='☰';burger.setAttribute('aria-expanded','false');});});
+  /* barra fixa do celular só depois que o botão do herói sai da tela */
+  var sb=document.querySelector('.stickybar'),heroCta=document.getElementById('cta-heroi');
+  if(sb&&heroCta&&'IntersectionObserver' in window){
+    new IntersectionObserver(function(es){sb.classList.toggle('show',!es[0].isIntersecting&&es[0].boundingClientRect.top<0);},{threshold:0}).observe(heroCta);
+  }else if(sb){sb.classList.add('show');}
   var links=[].slice.call(document.querySelectorAll('.nav-links a'));
   var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));}).filter(Boolean);
   if('IntersectionObserver' in window){
