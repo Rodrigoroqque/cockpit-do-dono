@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rodrigoroqque.github.io/cockpit-do-dono/sitemap.xml

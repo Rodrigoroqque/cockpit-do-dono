@@ -3,137 +3,196 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cockpit do Dono · IA e automação para o comércio</title>
-<meta name="description" content="Agentes, bots de WhatsApp, painéis e CRM para lojas online e distribuidoras pequenas. Oferta de entrada: sua loja no WhatsApp todo dia às 7h.">
+<title>Cockpit do Dono · Resumo da sua loja no WhatsApp todo dia às 7h</title>
+<meta name="description" content="Todo dia às 7h, no WhatsApp: o que vendeu, o que vai faltar no estoque, quem parou de comprar e os pedidos travados, com valor em cada linha e as ações do dia. Para loja online e distribuidora pequena. Pronto em 7 dias úteis.">
+<link rel="canonical" href="https://rodrigoroqque.github.io/cockpit-do-dono/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#0b0d10">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Cockpit do Dono">
+<meta property="og:title" content="Sua loja no WhatsApp, todo dia às 7h">
+<meta property="og:description" content="Vendas, estoque em risco, clientes fora do ciclo e pedidos travados, com valor em cada linha e as ações do dia. Leitura apenas. Pronto em 7 dias úteis.">
+<meta property="og:url" content="https://rodrigoroqque.github.io/cockpit-do-dono/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sua loja no WhatsApp, todo dia às 7h">
+<meta name="twitter:description" content="Resumo gerencial diário da sua loja, com as ações do dia. Para loja online e distribuidora pequena.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0d10'/%3E%3Cpath d='M14 40h8V26h-8zm14 0h8V16h-8zm14 0h8V32h-8z' fill='%2325D366'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Person","@id":"https://rodrigoroqque.github.io/cockpit-do-dono/#rodrigo","name":"Rodrigo Roque","jobTitle":"Consultor de IA e automação para o comércio","email":"rodrigoo.roque@gmail.com","telephone":"+55 11 97103-9322","url":"https://rodrigoroqque.github.io/cockpit-do-dono/","address":{"@type":"PostalAddress","addressLocality":"São Paulo","addressRegion":"SP","addressCountry":"BR"}},
+ {"@type":"Service","@id":"https://rodrigoroqque.github.io/cockpit-do-dono/#servico","name":"Cockpit do Dono","serviceType":"Resumo gerencial diário da loja no WhatsApp","description":"Mensagem diária às 7h com vendas, produtos, estoque em risco, clientes fora do ciclo de recompra e pedidos com pendência, mais pergunta livre e painel web. Conexão somente leitura à plataforma (Nuvemshop, Shopify, Tray, Loja Integrada) ou ao ERP (Bling, Tiny, Omie).","provider":{"@id":"https://rodrigoroqque.github.io/cockpit-do-dono/#rodrigo"},"areaServed":{"@type":"Country","name":"Brasil"},"audience":{"@type":"BusinessAudience","name":"Lojas online e distribuidoras pequenas"},"offers":{"@type":"Offer","priceCurrency":"BRL","price":"450","priceSpecification":[{"@type":"UnitPriceSpecification","price":"450","priceCurrency":"BRL","unitText":"mês"},{"@type":"UnitPriceSpecification","price":"2000","priceCurrency":"BRL","name":"Setup"}],"availability":"https://schema.org/InStock","url":"https://rodrigoroqque.github.io/cockpit-do-dono/#oferta"}},
+ {"@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Já tenho relatório na plataforma. Qual a diferença?","acceptedAnswer":{"@type":"Answer","text":"O relatório fica lá dentro esperando você abrir. O Cockpit chega pronto às 7h no WhatsApp, com nome, valor e as ações do dia, e responde perguntas."}},
+  {"@type":"Question","name":"A IA pode errar os números?","acceptedAnswer":{"@type":"Answer","text":"Os números vêm do seu sistema por consulta direta. A IA só escreve a frase. Na primeira semana conferimos juntos, linha por linha, antes do aceite."}},
+  {"@type":"Question","name":"Funciona com o meu sistema?","acceptedAnswer":{"@type":"Answer","text":"Nuvemshop, Shopify, Tray e Loja Integrada por API. Bling, Tiny e Omie por exportação diária. Se tem API ou exporta CSV, conecta."}},
+  {"@type":"Question","name":"É seguro dar acesso?","acceptedAnswer":{"@type":"Answer","text":"O acesso é somente leitura, nunca de escrita. Os dados ficam em ambiente separado por cliente e são apagados em até 15 dias após cancelamento."}},
+  {"@type":"Question","name":"Quanto tempo preciso dedicar?","acceptedAnswer":{"@type":"Answer","text":"Uma conversa de 10 minutos, o token de leitura e três conferências de 15 minutos na primeira semana."}}
+ ]}
+]}
+</script>
 <style>
   :root{
-    --bg:#0b0d10;--bg2:#12151a;--panel:#171b21;--line:#252b34;--ink:#f3f5f7;--muted:#9aa4b2;
-    --acc:#2fe08a;--acc-ink:#062b17;--wa:#25D366;--warn:#ffb454;
-    --light-bg:#f6f7f9;--light-panel:#fff;--light-ink:#0e1116;--light-muted:#5d6673;--light-line:#e6e9ee
+    --bg:#0b0d10;--bg2:#111418;--panel:#161a20;--line:#262c35;--ink:#f4f6f8;--muted:#a3adba;
+    --acc:#25D366;--acc-dark:#128C4A;--acc-ink:#03210f;
+    --lbg:#f6f7f9;--lpanel:#fff;--link:#0e1116;--lmuted:#525c6a;--lline:#e3e7ec
   }
   *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
   html,body{overflow-x:hidden}
-  body{margin:0;font:16px/1.55 "Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+  body{margin:0;font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
   a{color:inherit}
   .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
-  h1,h2,h3,p,li,.bubble{overflow-wrap:anywhere}
+  h1,h2,h3,p,li{overflow-wrap:anywhere}
   .row>*,.grid>*,.price>*{min-width:0}
-
-  html{scroll-behavior:smooth}
   section,header{scroll-margin-top:72px}
+  .sr{position:absolute;left:-9999px}
 
-  /* topo fixo */
-  .topbar{position:sticky;top:0;z-index:50;background:rgba(11,13,16,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
+  /* topo */
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(11,13,16,.84);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
   .topbar.scrolled{border-bottom-color:var(--line)}
-  nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:14px}
-  .nav-links a{position:relative;padding:6px 0;transition:color .15s}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:13px 0;gap:14px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.01em;text-decoration:none;font-size:17px}
+  .logo svg{width:28px;height:28px;flex:none}
+  .nav-links{display:flex;gap:20px;color:var(--muted);font-size:14px}
+  .nav-links a{text-decoration:none;position:relative;padding:6px 0;transition:color .15s}
   .nav-links a.on{color:var(--ink)}
   .nav-links a.on:after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--acc);border-radius:2px}
+  .cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--acc);color:var(--acc-ink);font-weight:800;padding:14px 22px;border-radius:12px;text-decoration:none;font-size:16px;min-height:44px;border:0;cursor:pointer;transition:transform .12s,filter .12s}
+  .cta:hover{filter:brightness(1.06);transform:translateY(-1px)}
+  .cta.sm{padding:10px 16px;min-height:38px;font-size:14px}
+  .cta svg{width:18px;height:18px;flex:none}
   .burger{display:none;background:transparent;border:1px solid var(--line);color:var(--ink);border-radius:10px;width:42px;height:38px;font-size:20px;line-height:1;cursor:pointer}
-  @media(max-width:760px){.burger{display:inline-flex;align-items:center;justify-content:center}.nav-cta{display:none}}
-  .drawer{display:none;border-top:1px solid var(--line);padding:8px 0 14px}
-  .drawer a{display:block;padding:12px 4px;text-decoration:none;font-weight:600;border-bottom:1px solid var(--line);min-height:38px}
+  @media(max-width:760px){.burger{display:inline-flex;align-items:center;justify-content:center}.nav-links,.nav .cta{display:none}}
+  .drawer{display:none;border-top:1px solid var(--line);padding:6px 0 12px}
+  .drawer a{display:block;padding:12px 4px;text-decoration:none;font-weight:600;border-bottom:1px solid var(--line);min-height:44px}
   .drawer a:last-child{border-bottom:0;color:var(--acc)}
   .drawer.open{display:block}
 
-  /* voltar ao topo */
-  #topo{position:fixed;right:18px;bottom:18px;z-index:60;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--ink);font-size:20px;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.4);opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .2s,transform .2s}
-  #topo.show{opacity:1;pointer-events:auto;transform:none}
-  #topo:hover{border-color:var(--acc);color:var(--acc)}
-  @media(max-width:760px){#topo{right:14px;bottom:14px}}
-  .light #topo{}
-  .logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.02em;text-decoration:none}
-  .logo i{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--acc),#19a862);display:inline-block}
-  .nav-cta{background:var(--acc);color:var(--acc-ink);font-weight:700;padding:10px 16px;border-radius:10px;text-decoration:none;min-height:38px;white-space:nowrap}
-  .nav-links{display:flex;gap:18px;color:var(--muted);font-size:14px}
-  .nav-links a{text-decoration:none}
-  @media(max-width:760px){.nav-links{display:none}}
-
   /* herói */
-  header{padding:54px 0 40px;background:
-     radial-gradient(1200px 500px at 20% -10%,rgba(47,224,138,.14),transparent 60%),
-     radial-gradient(800px 400px at 90% 10%,rgba(37,211,102,.10),transparent 60%)}
-  .tag{display:inline-block;border:1px solid var(--line);color:var(--acc);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:999px;margin-bottom:18px;background:rgba(47,224,138,.06)}
-  h1{font-size:clamp(34px,5.6vw,60px);line-height:1.04;margin:0 0 18px;letter-spacing:-.02em;font-weight:800}
+  header{padding:48px 0 36px;background:
+     radial-gradient(1100px 520px at 15% -10%,rgba(37,211,102,.16),transparent 60%),
+     radial-gradient(700px 420px at 95% 20%,rgba(37,211,102,.08),transparent 60%)}
+  .tag{display:inline-block;border:1px solid var(--line);color:var(--acc);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:999px;margin-bottom:18px;background:rgba(37,211,102,.06)}
+  h1{font-size:clamp(34px,5.4vw,58px);line-height:1.04;margin:0 0 18px;letter-spacing:-.02em;font-weight:800}
   h1 em{font-style:normal;color:var(--acc)}
-  .sub{font-size:clamp(17px,2.2vw,21px);color:var(--muted);max-width:620px;margin:0 0 28px}
-  .cta{display:inline-flex;align-items:center;gap:10px;background:var(--wa);color:#04210f;font-weight:800;padding:15px 22px;border-radius:12px;text-decoration:none;font-size:17px;min-height:38px}
-  .cta.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
-  .ctas{display:flex;gap:12px;flex-wrap:wrap}
-  .row{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
+  .sub{font-size:clamp(17px,2.1vw,20px);color:var(--muted);max-width:600px;margin:0 0 26px}
+  .micro{color:var(--muted);font-size:14px;margin:12px 0 0}
+  .micro a{color:var(--ink)}
+  .row{display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:center}
+  @media(max-width:900px){.row{grid-template-columns:1fr 360px;gap:24px}}
   @media(max-width:760px){.row{grid-template-columns:1fr}}
 
-  /* celular */
-  .phone{background:#0f1720;border:1px solid var(--line);border-radius:26px;padding:14px;box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.03) inset;position:relative}
-  .phone:before{content:"";display:block;width:90px;height:6px;border-radius:6px;background:#222a35;margin:2px auto 12px}
-  .bubble{background:#1f2c34;color:#e9edef;border-radius:12px;padding:12px 14px;font-size:13.5px;white-space:pre-wrap;line-height:1.45}
-  .bubble b{color:#fff}
-  .stamp{font-size:11px;color:#8696a0;text-align:right;margin-top:6px}
+  /* iPhone + WhatsApp */
+  .iphone{position:relative;width:min(390px,100%);margin:0 auto;aspect-ratio:390/860;background:#050607;border-radius:56px;padding:12px;box-shadow:0 40px 100px rgba(0,0,0,.6),0 0 0 2px #2a2f36,0 0 0 4px #0c0e11,inset 0 0 0 1px #3a4049}
+  .iphone:before{content:"";position:absolute;left:50%;top:22px;transform:translateX(-50%);width:118px;height:34px;background:#000;border-radius:20px;z-index:3}
+  .screen{position:relative;width:100%;height:100%;border-radius:44px;overflow:hidden;background:#0b141a;display:flex;flex-direction:column;font-size:11.8px;line-height:1.34}
+  .status{height:54px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 28px 6px;font-size:14px;font-weight:600;color:#fff;background:#202c33}
+  .status .r{display:flex;gap:6px;align-items:center;font-size:12px}
+  .wahead{background:#202c33;display:flex;align-items:center;gap:10px;padding:8px 12px 10px;border-bottom:1px solid #0b141a;color:#e9edef}
+  .wahead .back{color:#00a884;font-size:22px;line-height:1;margin-right:-2px}
+  .avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C4A);display:flex;align-items:center;justify-content:center;font-weight:800;color:#03210f;font-size:15px;flex:none}
+  .wahead .who{flex:1;min-width:0}
+  .wahead .who b{display:block;font-size:15px;line-height:1.15}
+  .wahead .who span{font-size:12px;color:#8696a0}
+  .wahead .icons{display:flex;gap:16px;color:#aebac1;font-size:16px}
+  .chat{flex:1;overflow:hidden;padding:10px 10px 8px;background-color:#0b141a;background-image:
+      radial-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+      radial-gradient(rgba(255,255,255,.025) 1px,transparent 1px);background-size:22px 22px,34px 34px;background-position:0 0,11px 11px}
+  .day{margin:0 auto 10px;width:max-content;background:#182229;color:#8696a0;font-size:11.5px;padding:4px 10px;border-radius:8px;box-shadow:0 1px 1px rgba(0,0,0,.3)}
+  .msg{position:relative;background:#202c33;color:#e9edef;border-radius:10px;border-top-left-radius:2px;padding:8px 10px 18px;max-width:92%;white-space:pre-wrap;box-shadow:0 1px 1px rgba(0,0,0,.35)}
+  .msg:before{content:"";position:absolute;left:-7px;top:0;border:8px solid transparent;border-top-color:#202c33;border-right-color:#202c33;border-radius:0 0 0 4px}
+  .msg b{color:#fff}
+  .msg .t{position:absolute;right:8px;bottom:4px;font-size:10.5px;color:#8696a0}
+  .msg.me{background:#005c4b;margin:8px 0 0 auto;border-top-left-radius:10px;border-top-right-radius:2px;max-width:80%}
+  .msg.me:before{left:auto;right:-7px;border-top-color:#005c4b;border-right-color:transparent;border-left-color:#005c4b;border-radius:0 0 4px 0}
+  .msg.me .t{color:#8fd3c4}
+  .msg.me .t:after{content:" ✓✓";color:#53bdeb}
+  .compose{display:flex;align-items:center;gap:8px;padding:8px 10px 10px;background:#0b141a}
+  .compose .in{flex:1;background:#2a3942;border-radius:20px;height:36px;display:flex;align-items:center;padding:0 14px;color:#8696a0;font-size:13px;gap:10px}
+  .compose .mic{width:36px;height:36px;border-radius:50%;background:#00a884;display:flex;align-items:center;justify-content:center;color:#fff;flex:none}
+  .homebar{height:20px;display:flex;align-items:center;justify-content:center;background:#0b141a}
+  .homebar i{width:120px;height:5px;border-radius:5px;background:#e9edef;opacity:.9}
+  @media(max-width:420px){.screen{font-size:11.5px}.iphone{border-radius:48px;padding:10px}.screen{border-radius:38px}}
 
-  /* provas */
-  .proof{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:12px;margin-top:36px}
+  /* faixas */
+  .proof{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:12px;margin-top:34px}
   .proof div{border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--bg2)}
-  .proof strong{display:block;font-size:26px;letter-spacing:-.02em}
+  .proof strong{display:block;font-size:24px;letter-spacing:-.02em}
   .proof span{color:var(--muted);font-size:14px}
-
-  /* seções */
   section{padding:64px 0;border-top:1px solid var(--line)}
   .kicker{color:var(--acc);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin:0 0 10px}
-  h2{font-size:clamp(26px,3.6vw,38px);margin:0 0 12px;letter-spacing:-.02em;line-height:1.1}
+  h2{font-size:clamp(26px,3.5vw,38px);margin:0 0 12px;letter-spacing:-.02em;line-height:1.1}
   .lead{color:var(--muted);max-width:680px;margin:0 0 28px;font-size:17px}
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:14px}
   .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px}
   .card h3{margin:0 0 8px;font-size:17px}
   .card p{margin:0;color:var(--muted);font-size:15px}
-  .card .n{color:var(--acc);font-weight:800;font-size:13px;letter-spacing:.06em;margin-bottom:8px;display:block}
-  .card.hl{border-color:rgba(47,224,138,.5);background:linear-gradient(180deg,rgba(47,224,138,.08),transparent 60%),var(--panel)}
-  .badge{display:inline-block;background:var(--acc);color:var(--acc-ink);font-weight:800;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:6px;margin-left:8px;vertical-align:middle}
-
-  /* oferta (claro) */
-  .light{background:var(--light-bg);color:var(--light-ink)}
-  .light .kicker{color:#15803d}
-  .light .lead,.light .card p,.light .proof span{color:var(--light-muted)}
-  .light .card{background:var(--light-panel);border-color:var(--light-line)}
-  .light .card.hl{border-color:#15803d;background:#effaf3}
-  .price{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;align-items:start}
-  @media(max-width:760px){.price{grid-template-columns:1fr}}
-  .num{font-size:44px;font-weight:800;letter-spacing:-.03em;margin:8px 0 0;line-height:1}
-  .num small{font-size:16px;font-weight:600;color:var(--light-muted)}
-  ul.clean{padding-left:18px;margin:14px 0 0}
-  ul.clean li{margin:6px 0}
+  .card .n{color:var(--acc);font-weight:800;font-size:12px;letter-spacing:.08em;margin-bottom:8px;display:block}
+  .card.hl{border-color:rgba(37,211,102,.5);background:linear-gradient(180deg,rgba(37,211,102,.08),transparent 60%),var(--panel)}
+  .quote{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:14px}
+  .quote blockquote{margin:0;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:14px;padding:18px 20px;font-size:17px;line-height:1.45}
+  .quote blockquote small{display:block;color:var(--muted);font-size:13px;margin-top:10px}
   .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:14px;counter-reset:s}
   .steps .card{position:relative;padding-top:22px}
   .steps .card:before{counter-increment:s;content:counter(s,decimal-leading-zero);position:absolute;top:14px;right:16px;color:var(--acc);font-weight:800;font-size:13px;letter-spacing:.08em}
+  .center{text-align:center}
+  .center .lead{margin-left:auto;margin-right:auto}
+
+  /* oferta (claro) */
+  .light{background:var(--lbg);color:var(--link)}
+  .light .kicker{color:var(--acc-dark)}
+  .light .lead,.light .card p,.light .proof span,.light small{color:var(--lmuted)}
+  .light .card{background:var(--lpanel);border-color:var(--lline)}
+  .light .card.hl{border-color:var(--acc-dark);background:#eefaf2}
+  .light .cta{background:var(--acc-dark);color:#fff}
+  .price{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;align-items:start}
+  @media(max-width:760px){.price{grid-template-columns:1fr}}
+  .num{font-size:46px;font-weight:800;letter-spacing:-.03em;margin:8px 0 0;line-height:1}
+  .num small{font-size:16px;font-weight:600}
+  ul.clean{padding-left:18px;margin:14px 0 0}
+  ul.clean li{margin:7px 0}
+  .garantia{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px dashed var(--acc-dark);border-radius:12px;padding:12px 14px;margin-top:16px;font-size:14px}
 
   /* faq + final */
   .faq details{border-bottom:1px solid var(--line);padding:12px 0}
-  .faq summary{cursor:pointer;font-weight:600;min-height:38px;display:flex;align-items:center;list-style:none}
+  .faq summary{cursor:pointer;font-weight:600;min-height:44px;display:flex;align-items:center;list-style:none}
   .faq summary::-webkit-details-marker{display:none}
   .faq summary:before{content:"+";color:var(--acc);font-weight:800;margin-right:12px;width:14px}
   .faq details[open] summary:before{content:"−"}
   .faq p{color:var(--muted);margin:6px 0 4px 26px}
-  .final{text-align:center;background:
-     radial-gradient(700px 300px at 50% 120%,rgba(47,224,138,.18),transparent 60%)}
-  footer{padding:28px 0 56px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+  .final{text-align:center;background:radial-gradient(700px 300px at 50% 120%,rgba(37,211,102,.18),transparent 60%)}
+  footer{padding:28px 0 96px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
   footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  @media(min-width:761px){footer{padding-bottom:56px}}
+
+  /* barra inferior mobile + voltar ao topo */
+  .stickybar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:55;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(11,13,16,.92);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+  .stickybar .cta{width:100%}
+  @media(max-width:760px){.stickybar{display:block}}
+  #topo{position:fixed;right:16px;bottom:16px;z-index:60;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--ink);font-size:20px;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.4);opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .2s,transform .2s}
+  #topo.show{opacity:1;pointer-events:auto;transform:none}
+  #topo:hover{border-color:var(--acc);color:var(--acc)}
+  @media(max-width:760px){#topo{bottom:84px}}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cta,#topo{transition:none}}
 </style>
 </head>
 <body>
 
 <div class="topbar" id="topbar">
   <div class="wrap">
-    <nav>
-      <a class="logo" href="#inicio"><i></i>Cockpit do Dono</a>
-      <div class="nav-links"><a href="#servicos">Serviços</a><a href="#oferta">Oferta de entrada</a><a href="#como">Como funciona</a><a href="#faq">Perguntas</a></div>
-      <a class="nav-cta" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20Cockpit%20do%20Dono%20na%20minha%20loja" target="_blank" rel="noopener">Falar no WhatsApp</a>
-      <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    <nav class="nav" aria-label="Principal">
+      <a class="logo" href="#inicio" aria-label="Cockpit do Dono, início"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#161a20"/><path d="M14 44h8V28h-8zm14 0h8V16h-8zm14 0h8V34h-8z" fill="#25D366"/></svg>Cockpit do Dono</a>
+      <div class="nav-links"><a href="#solucao">O que chega</a><a href="#como">Como funciona</a><a href="#oferta">Preço</a><a href="#faq">Dúvidas</a></div>
+      <a class="cta sm" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20Cockpit%20do%20Dono%20na%20minha%20loja" target="_blank" rel="noopener">Quero ver na minha loja</a>
+      <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer">☰</button>
     </nav>
     <div class="drawer" id="drawer">
-      <a href="#servicos">Serviços</a>
-      <a href="#oferta">Oferta de entrada</a>
+      <a href="#solucao">O que chega</a>
       <a href="#como">Como funciona</a>
-      <a href="#faq">Perguntas</a>
-      <a href="https://wa.me/5511971039322?text=Quero%20ver%20o%20Cockpit%20do%20Dono%20na%20minha%20loja" target="_blank" rel="noopener">Falar no WhatsApp →</a>
+      <a href="#oferta">Preço</a>
+      <a href="#faq">Dúvidas</a>
+      <a href="https://wa.me/5511971039322?text=Quero%20ver%20o%20Cockpit%20do%20Dono%20na%20minha%20loja" target="_blank" rel="noopener">Falar comigo no WhatsApp →</a>
     </div>
   </div>
 </div>
@@ -142,16 +201,25 @@
   <div class="wrap">
     <div class="row">
       <div>
-        <span class="tag">IA e automação para o comércio</span>
+        <span class="tag">Para dono de loja online e distribuidora</span>
         <h1>Sua loja no WhatsApp, <em>todo dia às 7h.</em></h1>
-        <p class="sub">Vendas contra o mês anterior, produtos em queda, estoque em risco, clientes fora do ciclo e pedidos travados. Com valor em cada linha e as ações do dia no fim. Sem abrir planilha, sem abrir sistema.</p>
-        <div class="ctas">
-          <a class="cta" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20Cockpit%20do%20Dono%20na%20minha%20loja" target="_blank" rel="noopener">Quero ver na minha loja · 10 min</a>
-          <a class="cta ghost" href="#oferta">Ver a oferta de entrada</a>
-        </div>
+        <p class="sub">O que vendeu, o que vai faltar no estoque, quem parou de comprar e os pedidos travados. Com valor em cada linha e as três ações do dia. Sem abrir planilha, sem abrir sistema.</p>
+        <a class="cta" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20Cockpit%20do%20Dono%20na%20minha%20loja" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 1.8a8.2 8.2 0 1 1-4.2 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8m-3 4.4c-.2 0-.5 0-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.2 5 4.4 2.5 1 3 .8 3.5.7.6 0 1.7-.7 2-1.4.2-.7.2-1.2.1-1.4l-.5-.3-2-1c-.3 0-.5-.1-.7.2l-.9 1.1c-.2.2-.3.2-.6.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.4 0-.5L10.7 9c-.2-.6-.5-.5-.7-.5h-.6z"/></svg>Quero ver na minha loja</a>
+        <p class="micro">10 minutos numa chamada. Você vê a mensagem rodando numa loja de exemplo e sai sabendo se serve para a sua. <a href="#oferta">Ver preço</a>.</p>
       </div>
-      <div class="phone">
-        <div class="bubble">📊 <b>Loja Exemplo · Resumo gerencial · sex 04/set</b>
+
+      <div class="iphone" role="img" aria-label="Tela de iPhone com uma conversa de WhatsApp mostrando o resumo gerencial diário da loja">
+        <div class="screen">
+          <div class="status"><span>07:00</span><span class="r">●●●● <span>5G</span> ▮▮▮</span></div>
+          <div class="wahead">
+            <span class="back">‹</span>
+            <div class="avatar">CD</div>
+            <div class="who"><b>Cockpit do Dono</b><span>online</span></div>
+            <div class="icons"><span>▣</span><span>☏</span><span>⋮</span></div>
+          </div>
+          <div class="chat">
+            <div class="day">Hoje</div>
+            <div class="msg">📊 <b>Loja Exemplo · Resumo gerencial · sex 04/set</b>
 
 <b>1. Vendas</b>
 Ontem: R$ 2.003 · 11 pedidos · ticket R$ 182
@@ -159,84 +227,67 @@ Mês (01 a 04/set): R$ 9.750 · 53 pedidos
 ▲ 38,4% vs 01 a 04/ago (R$ 7.043)
 
 <b>2. Produtos (7 dias)</b>
-Top 3: Whey Baunilha R$ 2.099 (11%) · Isolado Chocolate R$ 1.979 · Colágeno R$ 1.438
+Top 3: Whey Baunilha R$ 2.099 (11%) · Isolado Choc. R$ 1.979 · Colágeno R$ 1.438
 Em queda: Whey Chocolate 54%▼ · Creatina 300g 36%▼
 
 <b>3. Estoque</b>
-Risco de ruptura (≤ 7 dias): 5 itens · R$ 3.641 de venda semanal em risco
+Ruptura em ≤ 7 dias: 5 itens · R$ 3.641/semana em risco
 • Whey Chocolate 900g: 3 un, 2 dias de cobertura
-Capital parado (30+ dias): 2 itens · R$ 840 a custo
+Capital parado 30+ dias: 2 itens · R$ 840 a custo
 
 <b>4. Clientes</b>
 Fora do ciclo de recompra: 3 · R$ 2.153 de histórico
 • Débora Souza: ciclo 20d, 21d sem comprar, R$ 1.014
-Compra única sem retorno: 163 · R$ 27.571
 
 <b>5. Pedidos</b>
-Com pendência: 13 · R$ 1.868 retidos
-3 sem pagamento · 10 sem rastreio
+13 com pendência · R$ 1.868 retidos (3 sem pagamento, 10 sem rastreio)
 
 <b>Ações de hoje</b>
 1. Repor Whey Chocolate e Creatina 500g
 2. Contatar Débora Souza (momento ideal)
-3. Cobrar 3 pedidos sem pagamento (R$ 564)</div>
-        <div class="stamp">07:00 ✓✓</div>
+3. Cobrar 3 pedidos sem pagamento (R$ 564)<span class="t">07:00</span></div>
+            <div class="msg me">quanto vendi de creatina em agosto?<span class="t">07:12</span></div>
+            <div class="msg">Agosto (mês fechado, sem cancelados): <b>R$ 9.382</b> em 81 unidades. Mais vendida: Creatina 300g, 42 un. Atenção: a 500g está com 3 unidades em estoque.<span class="t">07:12</span></div>
+          </div>
+          <div class="compose"><div class="in">☺ <span>Mensagem</span></div><div class="mic">🎤</div></div>
+          <div class="homebar"><i></i></div>
+        </div>
       </div>
     </div>
 
     <div class="proof">
       <div><strong>5 blocos + ações</strong><span>vendas, produtos, estoque, clientes, pedidos e o que fazer hoje</span></div>
-      <div><strong>7 dias úteis</strong><span>da conversa à primeira mensagem na sua loja</span></div>
-      <div><strong>Leitura apenas</strong><span>o agente nunca altera nada na sua loja</span></div>
-      <div><strong>190+ pessoas</strong><span>usam diariamente o CRM e o bot que desenhei para um distribuidor nacional</span></div>
+      <div><strong>7 dias úteis</strong><span>do acesso de leitura à primeira mensagem</span></div>
+      <div><strong>Leitura apenas</strong><span>nada é alterado na sua loja, nunca</span></div>
+      <div><strong>190+ pessoas</strong><span>usam todo dia o CRM e o bot de WhatsApp que desenhei para um distribuidor nacional</span></div>
     </div>
   </div>
 </header>
 
-<section id="servicos">
+<section id="dor">
   <div class="wrap">
-    <p class="kicker">O que eu faço</p>
-    <h2>Agentes, bots, painéis e CRM para quem vende.</h2>
-    <p class="lead">Carreira em gestão comercial e CRM, agora aplicada com IA para lojas online e distribuidoras pequenas. Cada serviço tem escopo fechado e preço fechado.</p>
-    <div class="grid">
-      <div class="card hl"><span class="n">ENTRADA</span><h3>Cockpit do Dono <span class="badge">7 dias</span></h3><p>Resumo diário no WhatsApp com pergunta livre e painel web. É por onde todo cliente começa.</p></div>
-      <div class="card"><span class="n">ATENDIMENTO</span><h3>Bot de atendimento na loja</h3><p>Prazo, rastreio, política de troca, dúvida de produto. Responde 24h e passa para você quando precisa de gente.</p></div>
-      <div class="card"><span class="n">RECOMPRA</span><h3>Réguas de WhatsApp</h3><p>Carrinho abandonado, rastreio, recompra no ciclo de cada cliente. Com trava de não repetir e teto por dia.</p></div>
-      <div class="card"><span class="n">VENDAS</span><h3>CRM de carteira para vendedor</h3><p>Quem visitar hoje, quem está esfriando, o que oferecer. No celular, para quem vende na rua.</p></div>
-      <div class="card"><span class="n">GESTÃO</span><h3>Painéis e relatórios</h3><p>Do dado cru da plataforma ou do ERP ao painel que o dono abre de manhã. Sem licença cara.</p></div>
-      <div class="card"><span class="n">OPERAÇÃO</span><h3>Agente do dono com ação</h3><p>Preço, estoque e promoção propostos pelo agente e aplicados só com a sua aprovação.</p></div>
+    <p class="kicker">Reconhece?</p>
+    <h2>O painel da plataforma tem tudo. Você abre uma vez por semana.</h2>
+    <div class="quote">
+      <blockquote>"Só descubro que faltou creatina quando o cliente reclama."<small>ruptura que aparece tarde</small></blockquote>
+      <blockquote>"Tenho dinheiro parado em produto que não gira há dois meses e não sei quanto."<small>capital preso no estoque</small></blockquote>
+      <blockquote>"Cliente bom sumiu e eu só vi três meses depois."<small>recompra perdida em silêncio</small></blockquote>
     </div>
+    <p class="lead" style="margin-top:22px">O problema não é falta de dado. É o dado esperar você ir até ele. O Cockpit inverte: o que importa vem até você, às 7h, com o valor e a ação.</p>
   </div>
 </section>
 
-<section id="oferta" class="light">
+<section id="solucao">
   <div class="wrap">
-    <p class="kicker">Oferta de entrada</p>
-    <h2>Cockpit do Dono</h2>
-    <p class="lead">Uma mensagem por dia, 5 blocos, com nome e valor. Você responde com uma pergunta e recebe o dado.</p>
-    <div class="price">
-      <div class="card hl">
-        <div class="num">R$ 450<small>/mês</small></div>
-        <p style="margin-top:8px">+ R$ 2.000 de setup, pronto em 7 dias úteis</p>
-        <ul class="clean">
-          <li>💰 Vendas de ontem e do mês contra o mesmo trecho do mês anterior. Cancelado nunca entra.</li>
-          <li>🏆 Top 5 da semana e os produtos que caíram.</li>
-          <li>📦 O que zera em menos de 7 dias e o que está parado há 30, em reais a custo.</li>
-          <li>👥 Quem passou do próprio ciclo de recompra e quem comprou uma vez e não voltou.</li>
-          <li>⚠️ Pedido sem pagamento, sem rastreio, sem entrega.</li>
-          <li>💬 Pergunta livre pelo WhatsApp: "quanto vendi de creatina em agosto?"</li>
-          <li>Painel web, suporte em horário comercial e 30 dias de garantia: não valeu, cancela.</li>
-        </ul>
-        <p style="margin-top:18px"><a class="cta" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20Cockpit%20do%20Dono%20na%20minha%20loja" target="_blank" rel="noopener">Quero ver na minha loja</a></p>
-      </div>
-      <div class="card">
-        <h3>Funciona com</h3>
-        <p>Nuvemshop, Shopify, Tray e Loja Integrada por API. Bling, Tiny e Omie por exportação diária. Se tem API ou exporta CSV, conecta.</p>
-        <h3 style="margin-top:18px">Para quem</h3>
-        <p>Loja online com 30 a 500 pedidos por mês, ou distribuidora com 50 a 1.000 clientes ativos, cujo dono ainda descobre problema de estoque quando falta dinheiro.</p>
-        <h3 style="margin-top:18px">3 primeiras lojas</h3>
-        <p>Setup R$ 800 e mensal R$ 300 em troca de um caso publicado com o seu depoimento.</p>
-      </div>
+    <p class="kicker">O que chega</p>
+    <h2>Uma mensagem por dia. Cinco blocos, valor em cada linha, três ações.</h2>
+    <div class="grid">
+      <div class="card"><span class="n">1 · VENDAS</span><h3>Ontem e mês, contra o mesmo trecho do mês anterior</h3><p>Pedidos, ticket e variação. Pedido cancelado nunca entra na conta.</p></div>
+      <div class="card"><span class="n">2 · PRODUTOS</span><h3>Top 3 da semana e o que caiu</h3><p>Com participação na venda e percentual de queda contra a semana anterior.</p></div>
+      <div class="card"><span class="n">3 · ESTOQUE</span><h3>Risco de ruptura e capital parado</h3><p>Itens com menos de 7 dias de cobertura e quanto de venda semanal está em risco. Parado há 30 dias, em reais a custo.</p></div>
+      <div class="card"><span class="n">4 · CLIENTES</span><h3>Quem passou do próprio ciclo de recompra</h3><p>Nome, ciclo, dias sem comprar e histórico. Mais quem comprou uma vez e não voltou.</p></div>
+      <div class="card"><span class="n">5 · PEDIDOS</span><h3>Pendências e o valor retido</h3><p>Sem pagamento, sem rastreio, sem entrega. Antes de virar reclamação.</p></div>
+      <div class="card hl"><span class="n">AÇÕES DE HOJE</span><h3>Três coisas para fazer antes do café</h3><p>Repor, contatar, cobrar. Derivadas dos números, com nome e valor. E você responde com qualquer pergunta que o dado responda.</p></div>
     </div>
   </div>
 </section>
@@ -246,44 +297,80 @@ Com pendência: 13 · R$ 1.868 retidos
     <p class="kicker">Como funciona</p>
     <h2>Da conversa à mensagem das 7h em uma semana.</h2>
     <div class="steps">
-      <div class="card"><h3>Conversa de 10 min</h3><p>Você me mostra como descobre hoje o que vendeu e o que parou. Eu mostro a mensagem na loja de exemplo.</p></div>
-      <div class="card"><h3>Token de leitura</h3><p>Acesso de leitura à plataforma ou exportação diária do ERP. Nada de senha, nada de escrita.</p></div>
-      <div class="card"><h3>Validação junto</h3><p>Primeira semana conferimos os números contra o seu caixa e o seu estoque, linha por linha.</p></div>
+      <div class="card"><h3>Conversa de 10 min</h3><p>Você me mostra como descobre hoje o que vendeu e o que parou. Eu mostro a mensagem rodando na loja de exemplo.</p></div>
+      <div class="card"><h3>Acesso de leitura</h3><p>Token de leitura da plataforma ou exportação diária do ERP. Nada de senha, nada de escrita.</p></div>
+      <div class="card"><h3>Validação junto</h3><p>Primeira semana conferimos os números contra o seu caixa e o seu estoque, linha por linha. Aceite só quando bater.</p></div>
       <div class="card"><h3>Todo dia às 7h</h3><p>Mensagem no seu WhatsApp e painel web. Roda na nuvem, não depende de computador ligado.</p></div>
+    </div>
+    <p class="center" style="margin-top:26px"><a class="cta" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20Cockpit%20do%20Dono%20na%20minha%20loja" target="_blank" rel="noopener">Quero ver na minha loja</a></p>
+  </div>
+</section>
+
+<section id="oferta" class="light">
+  <div class="wrap">
+    <p class="kicker">Preço fechado</p>
+    <h2>Cockpit do Dono</h2>
+    <p class="lead">Sem escopo aberto, sem surpresa. Você sabe o que recebe e quanto paga antes de começar.</p>
+    <div class="price">
+      <div class="card hl">
+        <div class="num">R$ 450<small>/mês</small></div>
+        <p style="margin-top:8px">+ R$ 2.000 de setup, pronto em 7 dias úteis</p>
+        <ul class="clean">
+          <li>Mensagem diária às 7h com os 5 blocos e as ações do dia, para até 3 pessoas</li>
+          <li>Pergunta livre pelo WhatsApp, respondida com o dado da sua loja</li>
+          <li>Painel web com os mesmos números</li>
+          <li>Validação assistida na primeira semana</li>
+          <li>Suporte por WhatsApp em horário comercial; mensagem parada é prioridade 1</li>
+          <li>Custo de API e hospedagem incluídos</li>
+        </ul>
+        <div class="garantia"><span>✓</span><span><b>30 dias de garantia.</b> Não valeu, você cancela, sem multa, e fica com o painel do mês.</span></div>
+        <p style="margin-top:18px"><a class="cta" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20Cockpit%20do%20Dono%20na%20minha%20loja" target="_blank" rel="noopener">Quero ver na minha loja</a></p>
+      </div>
+      <div class="card">
+        <h3>Funciona com</h3>
+        <p>Nuvemshop, Shopify, Tray e Loja Integrada por API. Bling, Tiny e Omie por exportação diária. Se tem API ou exporta CSV, conecta.</p>
+        <h3 style="margin-top:18px">Para quem</h3>
+        <p>Loja online com 30 a 500 pedidos por mês, ou distribuidora com 50 a 1.000 clientes ativos, em que o dono ainda descobre problema de estoque quando falta dinheiro.</p>
+        <h3 style="margin-top:18px">Primeiras 3 lojas</h3>
+        <p>Setup R$ 800 e mensal R$ 300 em troca de um caso publicado com o seu depoimento. Vagas restantes: <b>3</b>.</p>
+        <h3 style="margin-top:18px">Depois, se quiser</h3>
+        <p>Bot de atendimento na loja, réguas de recompra no WhatsApp, CRM de carteira para vendedor, painéis e agente do dono com ação mediante aprovação. Cada um com escopo e preço fechados.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="faq" class="faq">
   <div class="wrap">
-    <p class="kicker">Perguntas que todo dono faz</p>
+    <p class="kicker">Dúvidas que todo dono tem</p>
     <h2>Sem letra miúda.</h2>
-    <details><summary>Já tenho relatório na plataforma.</summary><p>Tem. E você abre todo dia? A diferença é chegar pronto, com nome e valor, e responder pergunta.</p></details>
-    <details><summary>IA erra.</summary><p>O número vem do seu sistema, por consulta direta. A IA só escreve a frase. Na primeira semana você confere comigo.</p></details>
-    <details><summary>Meu sistema é outro.</summary><p>Se tem API ou exporta CSV, conecta. Me diz qual e confirmo em 24 horas.</p></details>
-    <details><summary>É seguro?</summary><p>Acesso de leitura, nunca de escrita. Seus dados ficam separados de qualquer outro cliente. Número de WhatsApp próprio do serviço.</p></details>
-    <details><summary>Quanto tempo do meu lado?</summary><p>Uma conversa de 10 minutos, o token de leitura e três conferências rápidas na primeira semana.</p></details>
-    <details><summary>E se eu quiser mais?</summary><p>Bot de atendimento, réguas de recompra, CRM de carteira e agente com ação entram depois, cada um com escopo e preço fechados.</p></details>
+    <details><summary>Já tenho relatório na plataforma. Qual a diferença?</summary><p>O relatório fica lá dentro esperando você abrir. O Cockpit chega pronto às 7h, com nome, valor e as ações do dia, e ainda responde pergunta.</p></details>
+    <details><summary>A IA pode errar os números?</summary><p>Os números vêm do seu sistema por consulta direta. A IA só escreve a frase. Na primeira semana conferimos juntos, linha por linha, antes do aceite.</p></details>
+    <details><summary>Funciona com o meu sistema?</summary><p>Nuvemshop, Shopify, Tray e Loja Integrada por API. Bling, Tiny e Omie por exportação diária. Me diz qual é o seu e confirmo em 24 horas.</p></details>
+    <details><summary>É seguro dar acesso?</summary><p>O acesso é somente leitura, nunca de escrita. Seus dados ficam em ambiente separado, só seu, e são apagados em até 15 dias se você cancelar.</p></details>
+    <details><summary>Quanto tempo preciso dedicar?</summary><p>Uma conversa de 10 minutos, o token de leitura e três conferências de 15 minutos na primeira semana.</p></details>
+    <details><summary>Quem está por trás?</summary><p>Rodrigo Roque. Carreira em gestão comercial e CRM; desenhei o CRM e o bot de WhatsApp que 190 pessoas usam todo dia num distribuidor nacional. Agora aplico o mesmo método, com IA, em lojas e distribuidoras pequenas.</p></details>
   </div>
 </section>
 
 <section class="final">
   <div class="wrap">
     <p class="kicker">Próximo passo</p>
-    <h2>Quer ver na sua loja?</h2>
-    <p class="lead" style="margin:0 auto 22px">10 minutos numa chamada. Sem compromisso.</p>
-    <a class="cta" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20Cockpit%20do%20Dono%20na%20minha%20loja" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+    <h2>Amanhã às 7h você pode saber o que vendeu, o que vai faltar e quem sumiu.</h2>
+    <p class="lead">10 minutos numa chamada. Sem compromisso, sem formulário.</p>
+    <a class="cta" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20Cockpit%20do%20Dono%20na%20minha%20loja" target="_blank" rel="noopener">Quero ver na minha loja</a>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <span>Cockpit do Dono · Rodrigo Roque · IA e automação para o comércio</span>
+    <span>Cockpit do Dono · Rodrigo Roque · IA e automação para o comércio · São Paulo</span>
     <span>Os números da demonstração são de uma loja fictícia.</span>
     <a href="#inicio" style="text-decoration:none">↑ Voltar ao topo</a>
   </div>
 </footer>
 
+<div class="stickybar"><a class="cta" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20Cockpit%20do%20Dono%20na%20minha%20loja" target="_blank" rel="noopener">Quero ver na minha loja</a></div>
 <button id="topo" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
 
 <script>
@@ -294,7 +381,6 @@ Com pendência: 13 · R$ 1.868 retidos
   topo.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
   burger.addEventListener('click',function(){var open=drawer.classList.toggle('open');burger.setAttribute('aria-expanded',open);burger.textContent=open?'✕':'☰';});
   drawer.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){drawer.classList.remove('open');burger.textContent='☰';burger.setAttribute('aria-expanded','false');});});
-  /* seção ativa no menu */
   var links=[].slice.call(document.querySelectorAll('.nav-links a'));
   var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));}).filter(Boolean);
   if('IntersectionObserver' in window){
