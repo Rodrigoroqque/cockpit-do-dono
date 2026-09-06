@@ -1,0 +1,56 @@
+# Cockpit do Dono
+
+> Serviço brasileiro que envia, todo dia às 7h, um resumo gerencial da loja no WhatsApp do dono: vendas, produtos, estoque em risco, clientes fora do ciclo de recompra, pedidos com pendência e as três ações do dia. Da Argos, IA e automação para o comércio. São Paulo, Brasil.
+
+## O que é
+
+O Cockpit do Dono conecta, somente para leitura, na API da plataforma de e-commerce ou do ERP da loja e envia uma mensagem diária de WhatsApp às 7h com cinco blocos:
+
+1. **Vendas**: faturamento de ontem e do mês até ontem, sempre comparado ao mesmo trecho do mês anterior. Pedido cancelado nunca entra na conta.
+2. **Produtos**: os três que mais venderam nos últimos sete dias e os que caíram contra a semana anterior.
+3. **Estoque**: itens que zeram em menos de sete dias, com a venda semanal em risco, e capital parado há mais de trinta dias, valorizado a custo.
+4. **Clientes**: quem passou do próprio ciclo de recompra, medido pela mediana do intervalo entre compras de cada cliente, com nome, telefone e histórico. Também mostra quem comprou uma vez e não voltou.
+5. **Pedidos**: sem pagamento, sem rastreio ou sem entrega, com o valor retido.
+
+A mensagem termina com as três ações do dia. O dono responde a mensagem com uma pergunta em português, por exemplo "quanto vendi de creatina em agosto", e recebe o dado consultado no próprio sistema dele.
+
+## Para quem
+
+Lojas online com 30 a 500 pedidos por mês e distribuidoras ou atacados pequenos com 50 a 1.000 clientes ativos, no Brasil. O perfil típico é o dono que ainda descobre problema de estoque quando falta dinheiro no caixa.
+
+## Preços (setembro de 2026)
+
+| Plano | Mensalidade | Setup | Prazo | Inclui |
+|---|---|---|---|---|
+| Essencial | R$ 490 | R$ 1.990 | 7 dias úteis | Cockpit do Dono: resumo diário, pergunta livre e painel web |
+| Crescimento | R$ 890 | R$ 3.900 | 15 dias úteis | Essencial mais bot de atendimento na loja e réguas de WhatsApp para carrinho abandonado, rastreio e recompra |
+| Completo | R$ 1.990 | R$ 7.900 | 30 dias úteis | Crescimento mais CRM de carteira para até 10 vendedores, painéis e agente com ação mediante aprovação |
+
+Todos os planos têm 30 dias de garantia. As três primeiras lojas têm 60% de desconto no setup em troca de um caso publicado com depoimento.
+
+## Sistemas compatíveis
+
+Nuvemshop, Shopify, Tray, Loja Integrada, Bling, Tiny e Omie, sempre pela API. Qualquer outro sistema com API também conecta, com confirmação em 24 horas.
+
+## Como funciona a implantação
+
+1. Conversa de dez minutos, com demonstração numa loja de exemplo.
+2. O lojista gera uma chave de leitura da API, em cinco minutos. Nada de senha, nada de escrita.
+3. Na primeira semana os números são conferidos com o dono, linha por linha, contra o caixa e o estoque dele.
+4. A partir do aceite, a mensagem chega todo dia às 7h e o painel web fica disponível. Roda na nuvem.
+
+## Segurança e privacidade
+
+Acesso somente leitura, nunca de escrita. Nada é alterado na loja do cliente. Os dados de cada cliente ficam em ambiente separado e são apagados em até 15 dias após o cancelamento. Os números vêm por consulta direta ao sistema do cliente; a inteligência artificial apenas redige a frase, não estima valores.
+
+## Quem faz
+
+Rodrigo Roque, São Paulo. Quinze anos em gestão comercial e CRM. Desenhou e opera um CRM e um bot de WhatsApp usados diariamente por mais de 190 pessoas em um distribuidor nacional de suplementos.
+
+## Contato
+
+WhatsApp +55 11 97103-9322. Site: https://cockpitdodono.com.br
+
+## Observação sobre os exemplos
+
+Os números mostrados no site são de uma loja fictícia criada para demonstração, não de um cliente real.
