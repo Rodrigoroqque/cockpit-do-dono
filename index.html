@@ -74,7 +74,7 @@
     .burger{display:inline-flex}
     .nav-links,.nav .cta{display:none}
     header{padding:26px 0 28px}
-    .tag{font-size:11px;letter-spacing:.06em;padding:5px 10px;margin-bottom:14px}
+    .tag{font-size:11px;letter-spacing:.05em;padding:6px 12px;margin-bottom:14px;gap:7px}
     h1{font-size:clamp(32px,9.2vw,40px)}
     .sub{font-size:16px;margin-bottom:20px}
     .micro{font-size:13px}
@@ -88,7 +88,9 @@
   header{padding:48px 0 36px;background:
      radial-gradient(1100px 520px at 15% -10%,rgba(37,211,102,.16),transparent 60%),
      radial-gradient(700px 420px at 95% 20%,rgba(37,211,102,.08),transparent 60%)}
-  .tag{display:inline-block;border:1px solid var(--line);color:var(--acc);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:999px;margin-bottom:18px;background:rgba(37,211,102,.06)}
+  .tag{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(37,211,102,.35);color:var(--acc);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;padding:10px 18px;border-radius:999px;margin-bottom:22px;background:rgba(37,211,102,.08)}
+  .tag i{width:7px;height:7px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 0 rgba(37,211,102,.6);animation:vivo 2s infinite}
+  @keyframes vivo{70%{box-shadow:0 0 0 7px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
   h1{font-size:clamp(34px,5.4vw,58px);line-height:1.04;margin:0 0 18px;letter-spacing:-.02em;font-weight:800}
   h1 em{font-style:normal;color:var(--acc)}
   .sub{font-size:clamp(17px,2.1vw,20px);color:var(--muted);max-width:600px;margin:0 0 26px}
@@ -123,9 +125,27 @@
   .msg.me:before{left:auto;right:-7px;border-top-color:#005c4b;border-right-color:transparent;border-left-color:#005c4b;border-radius:0 0 4px 0}
   .msg.me .t{color:#8fd3c4}
   .msg.me .t:after{content:" ✓✓";color:#53bdeb}
+  .msg .up{color:#6ee7a0;font-weight:600}
+  .msg .dn{color:#ff8a80;font-weight:600}
+  .msg .wn{color:#ffcc80;font-weight:600}
+  .msg{opacity:0;transform:translateY(10px) scale(.98);transition:opacity .25s ease,transform .25s ease}
+  .msg.on{opacity:1;transform:none}
+  .digita{display:none;align-items:center;gap:4px;background:#202c33;border-radius:10px;border-top-left-radius:2px;padding:11px 12px;width:max-content;margin-bottom:8px;box-shadow:0 1px 1px rgba(0,0,0,.35)}
+  .digita.on{display:flex}
+  .digita i{width:7px;height:7px;border-radius:50%;background:#8696a0;animation:pontos 1.2s infinite}
+  .digita i:nth-child(2){animation-delay:.2s}.digita i:nth-child(3){animation-delay:.4s}
+  @keyframes pontos{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
+  .chat{scrollbar-width:none}
+  .chat::-webkit-scrollbar{display:none}
+  .caret{display:inline-block;width:1px;height:13px;background:#e9edef;margin-left:1px;vertical-align:-2px;animation:pisca 1s steps(1) infinite}
+  @keyframes pisca{50%{opacity:0}}
   .compose{display:flex;align-items:center;gap:8px;padding:8px 10px 10px;background:#0b141a}
-  .compose .in{flex:1;background:#2a3942;border-radius:20px;height:36px;display:flex;align-items:center;padding:0 14px;color:#8696a0;font-size:13px;gap:10px}
-  .compose .mic{width:36px;height:36px;border-radius:50%;background:#00a884;display:flex;align-items:center;justify-content:center;color:#fff;flex:none}
+  .compose .in{flex:1;background:#2a3942;border-radius:20px;min-height:36px;display:flex;align-items:center;padding:0 14px;color:#8696a0;font-size:13px;gap:10px;overflow:hidden}
+  .compose .in .txt{color:#e9edef;white-space:nowrap;overflow:hidden}
+  .compose .in .ph{color:#8696a0}
+  .compose .env{width:36px;height:36px;border-radius:50%;background:#00a884;display:flex;align-items:center;justify-content:center;color:#fff;flex:none;transition:transform .12s}
+  .compose .env.click{transform:scale(.85)}
+  .compose .env svg{width:19px;height:19px;fill:#fff}
   .homebar{height:20px;display:flex;align-items:center;justify-content:center;background:#0b141a}
   .homebar i{width:120px;height:5px;border-radius:5px;background:#e9edef;opacity:.9}
   @media(max-width:420px){.screen{font-size:11.5px}.iphone{border-radius:48px;padding:10px}.screen{border-radius:38px}}
@@ -238,7 +258,7 @@
   <div class="wrap">
     <div class="row">
       <div>
-        <span class="tag">Loja online e distribuidora</span>
+        <span class="tag"><i></i>Loja online e distribuidora</span>
         <h1>Sua loja no WhatsApp, <em>todo dia às 7h.</em></h1>
         <p class="sub">O que vendeu, o que vai faltar no estoque, quem parou de comprar e os pedidos travados. Com valor em cada linha e as três ações do dia. Sem abrir planilha, sem abrir sistema.</p>
         <a class="cta" id="cta-heroi" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20Cockpit%20do%20Dono%20na%20minha%20loja" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>Quero ver na minha loja</a>
@@ -254,39 +274,45 @@
             <div class="who"><b>Cockpit do Dono</b><span>online</span></div>
             <div class="icons"><span>▣</span><span>☏</span><span>⋮</span></div>
           </div>
-          <div class="chat">
+          <div class="chat" id="chat">
             <div class="day">Hoje</div>
-            <div class="msg">📊 <b>Loja Exemplo · Resumo gerencial · sex 04/set</b>
+            <div class="msg" id="m1">📊 <b>Loja Exemplo · Resumo gerencial · sex 04/set</b>
 
 <b>1. Vendas</b>
 Ontem: R$ 2.003 · 11 pedidos · ticket R$ 182
 Mês (01 a 04/set): R$ 9.750 · 53 pedidos
-▲ 38,4% vs 01 a 04/ago (R$ 7.043)
+<span class="up">▲ 38,4%</span> vs 01 a 04/ago (R$ 7.043)
 
 <b>2. Produtos (7 dias)</b>
-Top 3: Whey Baunilha R$ 2.099 (11%) · Isolado Choc. R$ 1.979 · Colágeno R$ 1.438
-Em queda: Whey Chocolate 54%▼ · Creatina 300g 36%▼
+Top 3: Whey Baunilha <span class="up">R$ 2.099</span> · Isolado Choc. R$ 1.979 · Colágeno R$ 1.438
+Em queda: Whey Chocolate <span class="dn">54%▼</span> · Creatina 300g <span class="dn">36%▼</span>
 
 <b>3. Estoque</b>
-Ruptura em ≤ 7 dias: 5 itens · R$ 3.641/semana em risco
-• Whey Chocolate 900g: 3 un, 2 dias de cobertura
-Capital parado 30+ dias: 2 itens · R$ 840 a custo
+Ruptura em ≤ 7 dias: <span class="dn">5 itens</span> · <span class="dn">R$ 3.641/semana em risco</span>
+• Whey Chocolate 900g: 3 un, <span class="dn">2 dias de cobertura</span>
+Capital parado 30+ dias: 2 itens · <span class="wn">R$ 840 a custo</span>
 
 <b>4. Clientes</b>
-Fora do ciclo de recompra: 3 · R$ 2.153 de histórico
-• Débora Souza: ciclo 20d, 21d sem comprar, R$ 1.014
+Fora do ciclo de recompra: <span class="wn">3</span> · R$ 2.153 de histórico
+• Débora Souza: ciclo 20d, <span class="wn">21d sem comprar</span>, R$ 1.014
 
 <b>5. Pedidos</b>
-13 com pendência · R$ 1.868 retidos (3 sem pagamento, 10 sem rastreio)
+<span class="wn">13 com pendência</span> · <span class="dn">R$ 1.868 retidos</span> (3 sem pagamento, 10 sem rastreio)
 
 <b>Ações de hoje</b>
 1. Repor Whey Chocolate e Creatina 500g
 2. Contatar Débora Souza (momento ideal)
 3. Cobrar 3 pedidos sem pagamento (R$ 564)<span class="t">07:00</span></div>
-            <div class="msg me">quanto vendi de creatina em agosto?<span class="t">07:12</span></div>
-            <div class="msg">Agosto (mês fechado, sem cancelados): <b>R$ 9.382</b> em 81 unidades. Mais vendida: Creatina 300g, 42 un. Atenção: a 500g está com 3 unidades em estoque.<span class="t">07:12</span></div>
+            <div class="msg me" id="m2">quanto vendi de creatina em agosto?<span class="t">07:12</span></div>
+            <div class="msg" id="m3">Agosto (mês fechado, sem cancelados): <b class="up">R$ 9.382</b> em 81 unidades. Mais vendida: Creatina 300g, 42 un. Atenção: a 500g está com <span class="dn">3 unidades</span> em estoque.<span class="t">07:12</span></div>
+            <div class="msg me" id="m4">e quem parou de comprar?<span class="t">07:13</span></div>
+            <div class="msg" id="m5">3 clientes passaram do próprio ciclo, <span class="wn">R$ 2.153</span> de histórico. O mais quente é a <b>Débora Souza</b>: compra a cada 20 dias e está há 21 sem comprar. Quer a lista com os telefones?<span class="t">07:13</span></div>
+            <div class="digita" id="digita"><i></i><i></i><i></i></div>
           </div>
-          <div class="compose"><div class="in">☺ <span>Mensagem</span></div><div class="mic">🎤</div></div>
+          <div class="compose">
+            <div class="in">☺ <span class="ph" id="ph">Mensagem</span><span class="txt" id="txt"></span></div>
+            <div class="env" id="env" aria-hidden="true"><svg viewBox="0 0 24 24" id="ico-mic"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v6a3 3 0 0 0 3 3m5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 15 6.7 12H5c0 3.41 2.72 6.23 6 6.72V22h2v-3.28c3.28-.49 6-3.31 6-6.72z"/></svg></div>
+          </div>
           <div class="homebar"><i></i></div>
         </div>
       </div>
@@ -453,6 +479,75 @@ Fora do ciclo de recompra: 3 · R$ 2.153 de histórico
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id);});}});},{rootMargin:'-40% 0px -55% 0px',threshold:0});
     secs.forEach(function(s){io.observe(s);});
   }
+})();
+</script>
+
+<script>
+(function(){
+  var chat=document.getElementById('chat'), env=document.getElementById('env'), txt=document.getElementById('txt'),
+      ph=document.getElementById('ph'), dig=document.getElementById('digita'),
+      sub=document.querySelector('.wahead .who span'),
+      ids=['m1','m2','m3','m4','m5'], msgs=ids.map(function(i){return document.getElementById(i);});
+  if(!chat||!msgs[0]||!env) return;
+  var ico=env.querySelector('svg');
+  var MIC='<path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v6a3 3 0 0 0 3 3m5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 15 6.7 12H5c0 3.41 2.72 6.23 6 6.72V22h2v-3.28c3.28-.49 6-3.31 6-6.72z"/>',
+      AVIAO='<path d="M1.1 21.8 23 12 1.1 2.2l-.01 7.63L16.7 12 1.09 14.17z"/>';
+  var reduz=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function tudo(){msgs.forEach(function(m){m.classList.add('on');});chat.scrollTop=chat.scrollHeight;}
+  if(reduz){tudo();return;}
+  chat.style.overflowY='auto';
+  function esperar(ms){return new Promise(function(r){setTimeout(r,ms);});}
+  function rolarPara(alvo,dur){
+    return new Promise(function(res){
+      var ini=chat.scrollTop, dist=Math.max(0,alvo)-ini, t0=null;
+      if(Math.abs(dist)<2||dur<=0){chat.scrollTop=alvo;return res();}
+      function passo(t){
+        if(t0===null)t0=t;
+        var p=Math.min(1,(t-t0)/dur), e=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;
+        chat.scrollTop=ini+dist*e;
+        p<1?requestAnimationFrame(passo):res();
+      }
+      requestAnimationFrame(passo);
+    });
+  }
+  function fim(){return chat.scrollHeight-chat.clientHeight;}
+  function typing(on){dig.classList.toggle('on',on);if(sub)sub.textContent=on?'digitando…':'online';chat.scrollTop=fim();}
+  async function digitar(t){
+    ph.style.display='none';ico.innerHTML=AVIAO;
+    for(var i=1;i<=t.length;i++){txt.innerHTML=t.slice(0,i)+'<span class="caret"></span>';await esperar(38);}
+    txt.textContent=t;await esperar(300);
+    env.classList.add('click');await esperar(130);env.classList.remove('click');
+    txt.textContent='';ph.style.display='';ico.innerHTML=MIC;
+  }
+  async function responder(m){
+    typing(true);await esperar(1400);typing(false);
+    m.classList.add('on');await rolarPara(fim(),450);
+  }
+  async function ciclo(){
+    msgs.forEach(function(m){m.classList.remove('on');});
+    chat.scrollTop=0;
+    await esperar(800);
+    typing(true);await esperar(1600);typing(false);
+    msgs[0].classList.add('on');
+    chat.scrollTop=Math.max(0,msgs[0].offsetTop-6);   // começa no topo do resumo
+    await esperar(1600);
+    await rolarPara(fim(),4200);                      // leitura, de cima a baixo
+    await esperar(1200);
+    await digitar('quanto vendi de creatina em agosto?');
+    msgs[1].classList.add('on');await rolarPara(fim(),400);await esperar(400);
+    await responder(msgs[2]);
+    await esperar(2400);
+    await digitar('e quem parou de comprar?');
+    msgs[3].classList.add('on');await rolarPara(fim(),400);await esperar(400);
+    await responder(msgs[4]);
+    await esperar(8000);
+    ciclo();
+  }
+  var comecou=false;
+  function iniciar(){if(comecou)return;comecou=true;ciclo();}
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){if(es[0].isIntersecting)iniciar();},{threshold:.3}).observe(chat);
+  }else{iniciar();}
 })();
 </script>
 </body>
