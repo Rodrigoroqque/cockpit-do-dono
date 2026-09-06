@@ -21,11 +21,11 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
  {"@type":"Person","@id":"https://rodrigoroqque.github.io/cockpit-do-dono/#rodrigo","name":"Rodrigo Roque","jobTitle":"Consultor de IA e automação para o comércio","email":"rodrigoo.roque@gmail.com","telephone":"+55 11 97103-9322","url":"https://rodrigoroqque.github.io/cockpit-do-dono/","address":{"@type":"PostalAddress","addressLocality":"São Paulo","addressRegion":"SP","addressCountry":"BR"}},
- {"@type":"Service","@id":"https://rodrigoroqque.github.io/cockpit-do-dono/#servico","name":"Cockpit do Dono","serviceType":"Resumo gerencial diário da loja no WhatsApp","description":"Mensagem diária às 7h com vendas, produtos, estoque em risco, clientes fora do ciclo de recompra e pedidos com pendência, mais pergunta livre e painel web. Conexão somente leitura à plataforma (Nuvemshop, Shopify, Tray, Loja Integrada) ou ao ERP (Bling, Tiny, Omie).","provider":{"@id":"https://rodrigoroqque.github.io/cockpit-do-dono/#rodrigo"},"areaServed":{"@type":"Country","name":"Brasil"},"audience":{"@type":"BusinessAudience","name":"Lojas online e distribuidoras pequenas"},"offers":{"@type":"Offer","priceCurrency":"BRL","price":"450","priceSpecification":[{"@type":"UnitPriceSpecification","price":"450","priceCurrency":"BRL","unitText":"mês"},{"@type":"UnitPriceSpecification","price":"2000","priceCurrency":"BRL","name":"Setup"}],"availability":"https://schema.org/InStock","url":"https://rodrigoroqque.github.io/cockpit-do-dono/#oferta"}},
+ {"@type":"Service","@id":"https://rodrigoroqque.github.io/cockpit-do-dono/#servico","name":"Cockpit do Dono","serviceType":"Resumo gerencial diário da loja no WhatsApp","description":"Mensagem diária às 7h com vendas, produtos, estoque em risco, clientes fora do ciclo de recompra e pedidos com pendência, mais pergunta livre e painel web. Conexão somente leitura à plataforma (Nuvemshop, Shopify, Tray, Loja Integrada) ou ao ERP (Bling, Tiny, Omie).","provider":{"@id":"https://rodrigoroqque.github.io/cockpit-do-dono/#rodrigo"},"areaServed":{"@type":"Country","name":"Brasil"},"audience":{"@type":"BusinessAudience","name":"Lojas online e distribuidoras pequenas"},"offers":[{"@type":"Offer","name":"Essencial","priceCurrency":"BRL","price":"490","priceSpecification":{"@type":"UnitPriceSpecification","price":"490","priceCurrency":"BRL","unitText":"mês"},"availability":"https://schema.org/InStock","url":"https://rodrigoroqque.github.io/cockpit-do-dono/#oferta"},{"@type":"Offer","name":"Crescimento","priceCurrency":"BRL","price":"890","priceSpecification":{"@type":"UnitPriceSpecification","price":"890","priceCurrency":"BRL","unitText":"mês"},"availability":"https://schema.org/InStock","url":"https://rodrigoroqque.github.io/cockpit-do-dono/#oferta"},{"@type":"Offer","name":"Completo","priceCurrency":"BRL","price":"1990","priceSpecification":{"@type":"UnitPriceSpecification","price":"1990","priceCurrency":"BRL","unitText":"mês"},"availability":"https://schema.org/InStock","url":"https://rodrigoroqque.github.io/cockpit-do-dono/#oferta"}]},
  {"@type":"FAQPage","mainEntity":[
   {"@type":"Question","name":"Já tenho relatório na plataforma. Qual a diferença?","acceptedAnswer":{"@type":"Answer","text":"O relatório fica lá dentro esperando você abrir. O Cockpit chega pronto às 7h no WhatsApp, com nome, valor e as ações do dia, e responde perguntas."}},
   {"@type":"Question","name":"A IA pode errar os números?","acceptedAnswer":{"@type":"Answer","text":"Os números vêm do seu sistema por consulta direta. A IA só escreve a frase. Na primeira semana conferimos juntos, linha por linha, antes do aceite."}},
-  {"@type":"Question","name":"Funciona com o meu sistema?","acceptedAnswer":{"@type":"Answer","text":"Nuvemshop, Shopify, Tray e Loja Integrada por API. Bling, Tiny e Omie por exportação diária. Se tem API ou exporta CSV, conecta."}},
+  {"@type":"Question","name":"Funciona com o meu sistema?","acceptedAnswer":{"@type":"Answer","text":"Nuvemshop, Shopify, Tray, Loja Integrada, Bling, Tiny e Omie, pela API. Outro sistema com API também conecta."}},
   {"@type":"Question","name":"É seguro dar acesso?","acceptedAnswer":{"@type":"Answer","text":"O acesso é somente leitura, nunca de escrita. Os dados ficam em ambiente separado por cliente e são apagados em até 15 dias após cancelamento."}},
   {"@type":"Question","name":"Quanto tempo preciso dedicar?","acceptedAnswer":{"@type":"Answer","text":"Uma conversa de 10 minutos, o token de leitura e três conferências de 15 minutos na primeira semana."}}
  ]}
@@ -163,6 +163,25 @@
   .light .cta{background:var(--acc-dark);color:#fff}
   .price{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;align-items:start}
   @media(max-width:760px){.price{grid-template-columns:1fr}}
+  .planos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
+  @media(max-width:900px){.planos{grid-template-columns:1fr}}
+  .planos>*{min-width:0}
+  .plano{display:flex;flex-direction:column;position:relative;padding:24px 22px}
+  .plano.hl{border-width:2px;transform:translateY(-6px)}
+  @media(max-width:900px){.plano.hl{transform:none;order:-1;margin-top:10px}}
+  .pl-tag{position:absolute;top:-13px;left:22px;background:#15803d;color:#fff;font-weight:800;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
+  .pl-nome{font-weight:800;font-size:20px}
+  .pl-para{color:var(--lmuted);font-size:14px;margin:4px 0 12px;min-height:42px}
+  .pl-setup{color:var(--lmuted);font-size:14px;margin:8px 0 6px}
+  .plano ul.clean{flex:1}
+  .plano ul.clean li{font-size:15px}
+  .pl-cta{margin:18px 0 0}
+  .pl-cta .cta{width:100%}
+  .cta.ghost2{background:transparent;color:var(--link);border:2px solid #15803d}
+  .cta.ghost2:hover{background:#effaf3}
+  .pl-econ{margin-top:10px;font-size:13px;color:#15803d;font-weight:700;text-align:center}
+  .pl-rodape{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:14px;margin-top:22px;color:var(--lmuted);font-size:14px}
+  .pl-rodape>div{background:var(--lpanel);border:1px solid var(--lline);border-radius:12px;padding:14px}
   .num{font-size:46px;font-weight:800;letter-spacing:-.03em;margin:8px 0 0;line-height:1}
   .num small{font-size:16px;font-weight:600}
   ul.clean{padding-left:18px;margin:14px 0 0}
@@ -316,7 +335,7 @@ Fora do ciclo de recompra: 3 · R$ 2.153 de histórico
     <h2>Da conversa à mensagem das 7h em uma semana.</h2>
     <div class="steps">
       <div class="card"><h3>Conversa de 10 min</h3><p>Você me mostra como descobre hoje o que vendeu e o que parou. Eu mostro a mensagem rodando na loja de exemplo.</p></div>
-      <div class="card"><h3>Acesso de leitura</h3><p>Token de leitura da plataforma ou exportação diária do ERP. Nada de senha, nada de escrita.</p></div>
+      <div class="card"><h3>Acesso de leitura</h3><p>Você gera uma chave de leitura na sua plataforma ou ERP, em 5 minutos. Nada de senha, nada de escrita.</p></div>
       <div class="card"><h3>Validação junto</h3><p>Primeira semana conferimos os números contra o seu caixa e o seu estoque, linha por linha. Aceite só quando bater.</p></div>
       <div class="card"><h3>Todo dia às 7h</h3><p>Mensagem no seu WhatsApp e painel web. Roda na nuvem, não depende de computador ligado.</p></div>
     </div>
@@ -326,34 +345,58 @@ Fora do ciclo de recompra: 3 · R$ 2.153 de histórico
 
 <section id="oferta" class="light">
   <div class="wrap">
-    <p class="kicker">Preço fechado</p>
-    <h2>Cockpit do Dono</h2>
-    <p class="lead">Sem escopo aberto, sem surpresa. Você sabe o que recebe e quanto paga antes de começar.</p>
-    <div class="price">
-      <div class="card hl">
-        <div class="num">R$ 450<small>/mês</small></div>
-        <p style="margin-top:8px">+ R$ 2.000 de setup, pronto em 7 dias úteis</p>
+    <p class="kicker">Planos com preço fechado</p>
+    <h2>Escolha o tamanho. O escopo é fechado em todos.</h2>
+    <p class="lead">Todo plano começa pelo Cockpit do Dono, pronto em 7 dias úteis, com 30 dias de garantia. Sem escopo aberto, sem surpresa.</p>
+    <div class="planos">
+      <div class="card plano">
+        <div class="pl-nome">Essencial</div>
+        <div class="pl-para">Para o dono que quer enxergar a loja todo dia</div>
+        <div class="num">R$ 490<small>/mês</small></div>
+        <div class="pl-setup">Setup R$ 1.990 · 7 dias úteis</div>
         <ul class="clean">
-          <li>Mensagem diária às 7h com os 5 blocos e as ações do dia, para até 3 pessoas</li>
-          <li>Pergunta livre pelo WhatsApp, respondida com o dado da sua loja</li>
-          <li>Painel web com os mesmos números</li>
-          <li>Validação assistida na primeira semana</li>
-          <li>Suporte por WhatsApp em horário comercial; mensagem parada é prioridade 1</li>
-          <li>Custo de API e hospedagem incluídos</li>
+          <li><b>Cockpit do Dono</b>: resumo gerencial às 7h, 5 blocos e ações do dia, até 3 pessoas</li>
+          <li>Pergunta livre pelo WhatsApp</li>
+          <li>Painel web</li>
+          <li>Validação assistida e suporte em horário comercial</li>
         </ul>
-        <div class="garantia"><span>✓</span><span><b>30 dias de garantia.</b> Não valeu, você cancela, sem multa, e fica com o painel do mês.</span></div>
-        <p style="margin-top:18px"><a class="cta" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20Cockpit%20do%20Dono%20na%20minha%20loja" target="_blank" rel="noopener">Quero ver na minha loja</a></p>
+        <p class="pl-cta"><a class="cta ghost2" href="https://wa.me/5511971039322?text=Quero%20o%20plano%20Essencial%20%28Cockpit%20do%20Dono%29%20na%20minha%20loja" target="_blank" rel="noopener">Começar pelo Essencial</a></p>
       </div>
-      <div class="card">
-        <h3>Funciona com</h3>
-        <p>Nuvemshop, Shopify, Tray e Loja Integrada por API. Bling, Tiny e Omie por exportação diária. Se tem API ou exporta CSV, conecta.</p>
-        <h3 style="margin-top:18px">Para quem</h3>
-        <p>Loja online com 30 a 500 pedidos por mês, ou distribuidora com 50 a 1.000 clientes ativos, em que o dono ainda descobre problema de estoque quando falta dinheiro.</p>
-        <h3 style="margin-top:18px">Primeiras 3 lojas</h3>
-        <p>Setup R$ 800 e mensal R$ 300 em troca de um caso publicado com o seu depoimento. Vagas restantes: <b>3</b>.</p>
-        <h3 style="margin-top:18px">Depois, se quiser</h3>
-        <p>Bot de atendimento na loja, réguas de recompra no WhatsApp, CRM de carteira para vendedor, painéis e agente do dono com ação mediante aprovação. Cada um com escopo e preço fechados.</p>
+      <div class="card plano hl">
+        <div class="pl-tag">Mais escolhido</div>
+        <div class="pl-nome">Crescimento</div>
+        <div class="pl-para">Para a loja que quer vender mais para quem já comprou</div>
+        <div class="num">R$ 890<small>/mês</small></div>
+        <div class="pl-setup">Setup R$ 3.900 · 15 dias úteis</div>
+        <ul class="clean">
+          <li><b>Tudo do Essencial</b></li>
+          <li><b>Bot de atendimento</b> na loja: prazo, rastreio, troca, produto, 24h, com transbordo para você</li>
+          <li><b>Réguas de WhatsApp</b>: carrinho abandonado, rastreio e recompra no ciclo de cada cliente</li>
+          <li>Relatório mensal de conversão: quem comprou depois de receber</li>
+          <li>Número próprio na API oficial do WhatsApp</li>
+        </ul>
+        <p class="pl-cta"><a class="cta" href="https://wa.me/5511971039322?text=Quero%20o%20plano%20Crescimento%20%28Cockpit%20%2B%20bot%20%2B%20r%C3%A9guas%29%20na%20minha%20loja" target="_blank" rel="noopener">Quero o Crescimento</a></p>
+        <div class="pl-econ">Separado sairia R$ 1.550/mês. Aqui, R$ 890.</div>
       </div>
+      <div class="card plano">
+        <div class="pl-nome">Completo</div>
+        <div class="pl-para">Para quem tem equipe de vendas e quer a operação inteira</div>
+        <div class="num">R$ 1.990<small>/mês</small></div>
+        <div class="pl-setup">Setup R$ 7.900 · 30 dias úteis</div>
+        <ul class="clean">
+          <li><b>Tudo do Crescimento</b></li>
+          <li><b>CRM de carteira</b> para até 10 vendedores: lista do dia, ficha do cliente, agenda, mensagem das 7h por vendedor</li>
+          <li><b>Painéis</b> de vendas, produtos, estoque e clientes, com filtros por período</li>
+          <li><b>Agente do dono com ação</b>: preço, reposição e promoção aplicados só com a sua aprovação</li>
+          <li>Reunião mensal de resultado</li>
+        </ul>
+        <p class="pl-cta"><a class="cta ghost2" href="https://wa.me/5511971039322?text=Quero%20o%20plano%20Completo%20%28opera%C3%A7%C3%A3o%20inteira%29%20na%20minha%20loja" target="_blank" rel="noopener">Quero o Completo</a></p>
+      </div>
+    </div>
+    <div class="pl-rodape">
+      <div><b>Funciona com</b> Nuvemshop, Shopify, Tray, Loja Integrada, Bling, Tiny e Omie, pela API. Outro sistema com API? Me diz qual e confirmo em 24 horas.</div>
+      <div><b>Primeiras 3 lojas</b>, em qualquer plano: 60% de desconto no setup em troca de um caso publicado com o seu depoimento. Vagas restantes: <b>3</b>.</div>
+      <div><b>30 dias de garantia</b> em todos os planos. Não valeu, você cancela, sem multa, e fica com o painel do mês.</div>
     </div>
   </div>
 </section>
@@ -364,7 +407,7 @@ Fora do ciclo de recompra: 3 · R$ 2.153 de histórico
     <h2>Sem letra miúda.</h2>
     <details><summary>Já tenho relatório na plataforma. Qual a diferença?</summary><p>O relatório fica lá dentro esperando você abrir. O Cockpit chega pronto às 7h, com nome, valor e as ações do dia, e ainda responde pergunta.</p></details>
     <details><summary>A IA pode errar os números?</summary><p>Os números vêm do seu sistema por consulta direta. A IA só escreve a frase. Na primeira semana conferimos juntos, linha por linha, antes do aceite.</p></details>
-    <details><summary>Funciona com o meu sistema?</summary><p>Nuvemshop, Shopify, Tray e Loja Integrada por API. Bling, Tiny e Omie por exportação diária. Me diz qual é o seu e confirmo em 24 horas.</p></details>
+    <details><summary>Funciona com o meu sistema?</summary><p>Nuvemshop, Shopify, Tray, Loja Integrada, Bling, Tiny e Omie, pela API. Outro sistema com API? Me diz qual é o seu e confirmo em 24 horas.</p></details>
     <details><summary>É seguro dar acesso?</summary><p>O acesso é somente leitura, nunca de escrita. Seus dados ficam em ambiente separado, só seu, e são apagados em até 15 dias se você cancelar.</p></details>
     <details><summary>Quanto tempo preciso dedicar?</summary><p>Uma conversa de 10 minutos, o token de leitura e três conferências de 15 minutos na primeira semana.</p></details>
     <details><summary>Quem está por trás?</summary><p>Rodrigo Roque. Carreira em gestão comercial e CRM; desenhei o CRM e o bot de WhatsApp que 190 pessoas usam todo dia num distribuidor nacional. Agora aplico o mesmo método, com IA, em lojas e distribuidoras pequenas.</p></details>
