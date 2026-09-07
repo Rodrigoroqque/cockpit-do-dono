@@ -45,7 +45,7 @@ Acesso somente leitura, nunca de escrita. Nada é alterado na loja do cliente. O
 
 ## Quem faz
 
-Rodrigo Roque, São Paulo. Quinze anos em gestão comercial e CRM. Desenhou e opera um CRM e um bot de WhatsApp usados diariamente por mais de 190 pessoas em um distribuidor nacional de suplementos.
+Rodrigo Roque, São Paulo. Desenhou e opera um CRM e um bot de WhatsApp usados diariamente por mais de 190 pessoas em um distribuidor nacional de suplementos.
 
 ## Contato
 
