@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agente de WhatsApp para loja de suplemento · atende, recupera carrinho e traz o cliente de volta | Argos</title>
+<meta name="description" content="Agente de IA para loja de suplemento: atende no WhatsApp com travas sanitárias, recupera carrinho abandonado em três toques e chama o cliente de volta quando o pote acaba. Simule quanto a sua loja está deixando na mesa.">
+<link rel="canonical" href="https://cockpitdodono.com.br/suplementos/">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="theme-color" content="#F5F3EE">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Argos">
+<meta property="og:title" content="O cliente não esquece da sua loja. Ele esquece de comprar.">
+<meta property="og:description" content="Agente de WhatsApp que atende, recupera carrinho e chama de volta quando o pote acaba. Para loja de suplemento.">
+<meta property="og:url" content="https://cockpitdodono.com.br/suplementos/">
+<meta property="og:image" content="https://cockpitdodono.com.br/og.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E110F'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='%2325D366' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='6' fill='%2325D366'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Service","@id":"https://cockpitdodono.com.br/suplementos/#servico","name":"Agente de WhatsApp para loja de suplemento","serviceType":"Atendimento, recuperação de carrinho e recompra automática por WhatsApp","description":"Agente de inteligência artificial que atende os clientes da loja de suplemento no WhatsApp com travas de publicidade sanitária, recupera carrinho abandonado em três toques e chama o cliente de volta quando o pote está acabando, calculado pela duração real do produto.","provider":{"@type":"Organization","name":"Argos","url":"https://cockpitdodono.com.br/","telephone":"+5511971039322","address":{"@type":"PostalAddress","addressLocality":"São Paulo","addressRegion":"SP","addressCountry":"BR"}},"areaServed":{"@type":"Country","name":"Brasil"},"audience":{"@type":"BusinessAudience","name":"Lojas online de suplemento alimentar com 50 a 1.000 pedidos por mês"},"offers":[
+  {"@type":"Offer","name":"Atende","priceCurrency":"BRL","price":"490","priceSpecification":{"@type":"UnitPriceSpecification","price":"490","priceCurrency":"BRL","unitText":"mês"},"availability":"https://schema.org/InStock"},
+  {"@type":"Offer","name":"Atende e Recompra","priceCurrency":"BRL","price":"890","priceSpecification":{"@type":"UnitPriceSpecification","price":"890","priceCurrency":"BRL","unitText":"mês"},"availability":"https://schema.org/InStock"},
+  {"@type":"Offer","name":"Operação","priceCurrency":"BRL","price":"1990","priceSpecification":{"@type":"UnitPriceSpecification","price":"1990","priceCurrency":"BRL","unitText":"mês"},"availability":"https://schema.org/InStock"}]},
+ {"@type":"FAQPage","@id":"https://cockpitdodono.com.br/suplementos/#faq","mainEntity":[
+  {"@type":"Question","name":"Como o agente sabe quando chamar o cliente de volta?","acceptedAnswer":{"@type":"Answer","text":"Ele calcula quanto tempo o pote dura, dividindo a quantidade pela dose diária usual da categoria. Um whey de 900 gramas dura cerca de 35 dias e uma creatina de 300 gramas dura 60. Assim ele chama antes de acabar, já na primeira compra, sem precisar de histórico. Quando o cliente tem três ou mais compras, o intervalo real dele passa a valer mais que a conta do rótulo."}},
+  {"@type":"Question","name":"O agente pode falar algo proibido sobre suplemento?","acceptedAnswer":{"@type":"Answer","text":"Não. Toda mensagem passa por uma revisão automática antes de sair, que bloqueia promessa de emagrecimento, cura, prevenção de doença e superlativo sem prova, conforme as regras de publicidade de alimentos da Anvisa. Perguntas de gestante, criança, pessoa com doença ou uso junto com medicamento nunca são respondidas pelo agente: ele encaminha para um humano."}},
+  {"@type":"Question","name":"Quanto rende recuperar carrinho abandonado por WhatsApp?","acceptedAnswer":{"@type":"Answer","text":"No Brasil, o WhatsApp é aberto por 85 a 98% das pessoas e recupera de 15 a 35% dos carrinhos abandonados. Um benchmark realista para automação bem configurada fica entre 15 e 25%. Abaixo de 8% o problema costuma ser a sequência de mensagens, não o canal."}},
+  {"@type":"Question","name":"Preciso trocar a plataforma da minha loja?","acceptedAnswer":{"@type":"Answer","text":"Não. O agente conecta pela API da plataforma que a loja já usa, como Nuvemshop, Shopify, Tray, Loja Integrada, Bling, Tiny ou Omie, e só com permissão de leitura."}},
+  {"@type":"Question","name":"Quanto custa?","acceptedAnswer":{"@type":"Answer","text":"Três planos. Atende: R$ 490 por mês mais R$ 1.990 de setup. Atende e Recompra: R$ 890 por mês mais R$ 3.900. Operação: R$ 1.990 por mês mais R$ 7.900. Todos com 30 dias de garantia."}}]}
+]}
+</script>
+<style>
+:root{
+  --papel:#F5F3EE; --papel2:#ECE9E1; --tinta:#11130F; --tinta2:#5B6055; --tinta3:#8A9083;
+  --linha:#DAD5C9; --linha2:#C8C2B3;
+  --zap:#25D366; --zap-esc:#0E7B3C; --zap-tinta:#04210F; --zap-fraca:#E6F7EC;
+  --alerta:#B4530C; --perigo:#AB2B22;
+  --escuro:#0E110F; --escuro2:#171B18; --escuro-linha:#282E29; --escuro-txt:#F1F3EF; --escuro-txt2:#98A099;
+  --d:'Archivo',Impact,sans-serif; --t:'Inter Tight',system-ui,sans-serif; --m:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html,body{overflow-x:clip}
+body{margin:0;background:var(--papel);color:var(--tinta);font:400 17px/1.55 var(--t);-webkit-font-smoothing:antialiased}
+body:before{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.5;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E")}
+a{color:inherit}
+svg{display:block;max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+h1,h2,h3{margin:0;font-family:var(--d);font-weight:900;letter-spacing:-.022em;line-height:.95;text-transform:uppercase;font-variation-settings:'wdth' 82}
+h1{font-size:clamp(40px,5.2vw,74px);max-width:15ch}
+h2{font-size:clamp(30px,4.2vw,54px)}
+h3{font-size:18px;letter-spacing:-.01em;text-transform:none;font-variation-settings:'wdth' 96;font-weight:800;line-height:1.2}
+p{margin:0}
+.mono{font-family:var(--m);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+
+.topbar{position:sticky;top:0;z-index:60;background:rgba(245,243,238,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .25s}
+.topbar.fix{border-bottom-color:var(--linha)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:13px 0}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--d);font-weight:900;font-size:18px;text-transform:uppercase;font-variation-settings:'wdth' 86;letter-spacing:.02em}
+.logo svg{width:25px;height:25px;flex:none}
+.logo em{font-style:normal;font-family:var(--m);font-size:10px;letter-spacing:.14em;color:var(--tinta3);font-weight:500;padding-left:9px;border-left:1px solid var(--linha2);text-transform:none}
+.links{display:flex;gap:22px}
+.links a{text-decoration:none;font-family:var(--m);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta2);padding:6px 0;transition:color .2s}
+.links a:hover{color:var(--tinta)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--tinta);color:var(--papel);border:0;cursor:pointer;text-decoration:none;font:600 15px/1 var(--t);padding:14px 22px;border-radius:999px;min-height:46px;transition:transform .14s,box-shadow .2s,background .2s,color .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(17,19,15,.2)}
+.btn svg{width:17px;height:17px;flex:none}
+.btn.zap{background:var(--zap);color:var(--zap-tinta)}
+.btn.linha{background:transparent;color:var(--tinta);border:1.5px solid var(--tinta)}
+.btn.linha:hover{background:var(--tinta);color:var(--papel)}
+.btn.sm{padding:10px 16px;min-height:38px;font-size:14px}
+.burger{display:none;background:none;border:0;padding:0;width:40px;height:40px;align-items:center;justify-content:center;cursor:pointer;color:var(--tinta)}
+.burger svg{width:24px;height:24px}
+.gaveta{display:none;border-top:1px solid var(--linha);padding:4px 0 12px}
+.gaveta.open{display:block}
+.gaveta a{display:block;padding:13px 2px;text-decoration:none;font-weight:600;border-bottom:1px solid var(--linha)}
+.gaveta a:last-child{border:0}
+
+.heroi{position:relative;padding:clamp(32px,4.6vw,62px) 0 clamp(28px,3.6vw,46px);overflow:clip}
+.marca{position:absolute;right:3%;top:8%;font-family:var(--d);font-weight:900;font-size:min(26vw,340px);line-height:.8;color:var(--tinta);opacity:.04;letter-spacing:-.04em;pointer-events:none;user-select:none;font-variation-settings:'wdth' 70}
+.heroi .wrap{position:relative;z-index:1}
+.selo{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--linha2);background:rgba(255,255,255,.6);padding:8px 15px 8px 12px;border-radius:999px;margin-bottom:20px}
+.selo i{width:7px;height:7px;border-radius:50%;background:var(--zap)}
+h1 .verde{color:var(--zap-esc)}
+.sub{margin:22px 0 26px;font-size:clamp(17px,1.6vw,20px);color:var(--tinta2);max-width:36em}
+.sub b{color:var(--tinta);font-weight:600}
+.acoes{display:flex;gap:12px;flex-wrap:wrap}
+
+/* simulador */
+.sim{margin-top:clamp(30px,4vw,48px);border:1px solid var(--linha);border-radius:18px;background:var(--papel2);overflow:hidden}
+.sim-cab{background:var(--escuro);color:var(--escuro-txt);padding:18px 24px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.sim-cab b{font-family:var(--d);font-weight:900;font-size:19px;text-transform:uppercase;font-variation-settings:'wdth' 88}
+.sim-cab span{font-size:14.5px;color:var(--escuro-txt2)}
+.sim-corpo{display:grid;grid-template-columns:0.9fr 1.1fr}
+.sim-entrada{padding:24px;border-right:1px solid var(--linha)}
+.campo{margin-bottom:18px}
+.campo label{display:block;font-size:14.5px;color:var(--tinta2);margin-bottom:5px}
+.campo label b{color:var(--tinta);font-weight:600}
+.campo input{width:100%;border:0;border-bottom:2px solid var(--linha2);background:transparent;font:700 26px var(--d);font-variation-settings:'wdth' 88;color:var(--tinta);padding:4px 0;outline:0;transition:border-color .2s}
+.campo input:focus{border-bottom-color:var(--zap)}
+.campo .un{font-family:var(--m);font-size:11px;color:var(--tinta3);letter-spacing:.1em}
+.sim-saida{padding:24px;background:var(--papel)}
+.linha-res{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:13px 0;border-bottom:1px solid var(--linha)}
+.linha-res:last-of-type{border-bottom:0}
+.linha-res .q{font-size:15px;color:var(--tinta2);max-width:22em}
+.linha-res .q b{color:var(--tinta);font-weight:600;display:block}
+.linha-res .v{font-family:var(--d);font-weight:900;font-size:clamp(20px,2.1vw,27px);letter-spacing:-.02em;font-variation-settings:'wdth' 86;white-space:nowrap}
+.linha-res .v.perde{color:var(--perigo)}
+.linha-res .v.ganha{color:var(--zap-esc)}
+.total{margin-top:16px;padding:18px 20px;border-radius:12px;background:var(--zap-fraca);border:1px solid rgba(37,211,102,.4)}
+.total .lb{font-family:var(--m);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--zap-esc)}
+.total .big{font-family:var(--d);font-weight:900;font-size:clamp(30px,3.6vw,44px);letter-spacing:-.03em;font-variation-settings:'wdth' 84;line-height:1.05;margin-top:4px}
+.total p{margin-top:8px;font-size:14.5px;color:var(--tinta2)}
+.total p b{color:var(--tinta)}
+
+section{padding:clamp(48px,6vw,88px) 0;position:relative}
+.cab{display:flex;align-items:baseline;gap:16px;margin-bottom:14px;color:var(--tinta3)}
+.cab i{font-family:var(--m);font-size:11.5px;letter-spacing:.14em;font-style:normal;color:var(--zap-esc);font-weight:700}
+.cab .l{flex:1;height:1px;background:var(--linha)}
+.intro{color:var(--tinta2);font-size:clamp(17px,1.5vw,19px);max-width:54ch;margin-top:16px}
+
+.blocos{margin-top:42px;border-top:1px solid var(--linha)}
+.bloco{display:grid;grid-template-columns:56px 1fr 1.05fr;gap:clamp(14px,3vw,40px);padding:26px 0;border-bottom:1px solid var(--linha);align-items:start;transition:background .25s}
+.bloco:hover{background:rgba(255,255,255,.5)}
+.bloco .n{font-family:var(--m);font-size:12px;color:var(--tinta3);padding-top:5px;letter-spacing:.1em}
+.bloco p{color:var(--tinta2);font-size:15.5px;margin-top:7px}
+.bloco .ex{font-family:var(--m);font-size:12.5px;line-height:1.7;background:var(--escuro);color:var(--escuro-txt);padding:15px 17px;border-radius:10px;white-space:pre-wrap;overflow-x:auto}
+.bloco .ex .lb{color:#8696a0}.bloco .ex .ok{color:#6ee7a0}.bloco .ex .al{color:#ffcc80}.bloco .ex .no{color:#ff8a80}
+
+.escuro{background:var(--escuro);color:var(--escuro-txt)}
+.escuro .cab{color:var(--escuro-txt2)}
+.escuro .cab i{color:var(--zap)}
+.escuro .cab .l{background:var(--escuro-linha)}
+.escuro .intro{color:var(--escuro-txt2)}
+.planos{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:42px;align-items:start}
+.plano{border:1px solid var(--escuro-linha);border-radius:16px;padding:26px 24px 24px;display:flex;flex-direction:column;background:var(--escuro2);position:relative;transition:transform .2s,border-color .2s}
+.plano:hover{transform:translateY(-4px);border-color:#3a4440}
+.plano.alvo{border-color:var(--zap);background:linear-gradient(180deg,rgba(37,211,102,.09),transparent 46%),var(--escuro2);transform:scale(1.03)}
+.plano.alvo:hover{transform:scale(1.03) translateY(-4px)}
+.fita{position:absolute;top:-11px;left:24px;background:var(--zap);color:var(--zap-tinta);font-family:var(--m);font-size:10.5px;font-weight:700;letter-spacing:.12em;padding:5px 10px;border-radius:5px;text-transform:uppercase}
+.plano .nm{font-family:var(--d);font-weight:900;font-size:22px;text-transform:uppercase;font-variation-settings:'wdth' 88}
+.plano .pra{color:var(--escuro-txt2);font-size:14.5px;margin:6px 0 16px;min-height:40px}
+.preco{font-family:var(--d);font-weight:900;font-size:44px;line-height:1;letter-spacing:-.03em;font-variation-settings:'wdth' 84}
+.preco small{font-family:var(--t);font-size:15px;font-weight:500;color:var(--escuro-txt2)}
+.setup{font-family:var(--m);font-size:11.5px;color:var(--escuro-txt2);margin-top:9px;letter-spacing:.06em}
+.plano ul{list-style:none;padding:0;margin:18px 0 0;flex:1;display:flex;flex-direction:column;gap:11px}
+.plano li{display:flex;gap:10px;font-size:15px;line-height:1.42;color:#cfd6cd}
+.plano li svg{width:15px;height:15px;flex:none;margin-top:4px;color:var(--zap)}
+.plano li b{color:var(--escuro-txt)}
+.plano .btn{margin-top:20px;width:100%}
+.plano .btn.linha{color:var(--escuro-txt);border-color:#3d4741}
+.plano .btn.linha:hover{background:var(--escuro-txt);color:var(--escuro)}
+
+.faq{margin-top:36px;border-top:1px solid var(--linha)}
+.faq details{border-bottom:1px solid var(--linha)}
+.faq summary{cursor:pointer;list-style:none;padding:21px 44px 21px 0;font-family:var(--d);font-weight:800;font-size:18.5px;font-variation-settings:'wdth' 94;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"";position:absolute;right:8px;top:50%;width:11px;height:11px;border-right:2px solid var(--tinta3);border-bottom:2px solid var(--tinta3);transform:translateY(-70%) rotate(45deg);transition:transform .25s}
+.faq details[open] summary:after{transform:translateY(-30%) rotate(-135deg)}
+.faq p{padding:0 0 21px;color:var(--tinta2);max-width:72ch}
+
+.final{text-align:center;background:var(--papel2);border-top:1px solid var(--linha)}
+.final .intro{margin:18px auto 28px}
+footer{border-top:1px solid var(--linha);padding:30px 0 42px;font-size:14px;color:var(--tinta2)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+footer .mono{color:var(--tinta3)}
+.fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:65;width:58px;height:58px;border-radius:50%;background:var(--zap);color:var(--zap-tinta);display:flex;align-items:center;justify-content:center;box-shadow:0 14px 34px rgba(37,211,102,.42);opacity:0;pointer-events:none;transform:translateY(12px) scale(.9);transition:opacity .25s,transform .25s}
+.fab.on{opacity:1;pointer-events:auto;transform:none}
+.fab svg{width:29px;height:29px}
+.rev{opacity:0;transform:translateY(18px);transition:opacity .6s cubic-bezier(.2,.7,.3,1),transform .6s cubic-bezier(.2,.7,.3,1)}
+.rev.vis{opacity:1;transform:none}
+
+@media(max-width:980px){
+  .marca{font-size:40vw;top:auto;bottom:4%;right:-6%}
+  .sim-corpo{grid-template-columns:1fr}
+  .sim-entrada{border-right:0;border-bottom:1px solid var(--linha)}
+  .planos{grid-template-columns:1fr}
+  .plano.alvo{transform:none;order:-1}
+  .bloco{grid-template-columns:34px 1fr;gap:10px 16px}
+  .bloco .ex{grid-column:1/-1;margin-top:6px}
+}
+@media(max-width:760px){
+  body{font-size:16px}
+  .links,nav .btn{display:none}
+  .burger{display:flex}
+  nav{padding:9px 0}
+  .acoes .btn{width:100%}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rev{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<div class="topbar" id="topbar">
+  <div class="wrap">
+    <nav>
+      <a class="logo" href="/">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="16" cy="16" r="5.2" fill="#25D366"/></svg>
+        Argos<em>para loja de suplemento</em>
+      </a>
+      <div class="links">
+        <a href="#simulador">Simulador</a>
+        <a href="#faz">O que ele faz</a>
+        <a href="#travas">Travas da Anvisa</a>
+        <a href="#planos">Planos</a>
+      </div>
+      <a class="btn zap sm" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20agente%20na%20minha%20loja%20de%20suplemento" target="_blank" rel="noopener">Ver na minha loja</a>
+      <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="gaveta">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      </button>
+    </nav>
+    <div class="gaveta" id="gaveta">
+      <a href="#simulador">Simulador</a>
+      <a href="#faz">O que ele faz</a>
+      <a href="#travas">Travas da Anvisa</a>
+      <a href="#planos">Planos</a>
+      <a href="#faq">Perguntas</a>
+    </div>
+  </div>
+</div>
+
+<header class="heroi" id="inicio">
+  <div class="marca" aria-hidden="true">35d</div>
+  <div class="wrap">
+    <span class="selo"><i></i><span class="mono">Loja de suplemento</span></span>
+    <h1>O cliente não esquece da sua loja.<br><span class="verde">Ele esquece de comprar.</span></h1>
+    <p class="sub">Um whey de 900 g dura 35 dias. Uma creatina de 300 g dura 60. <b>Seu sistema sabe a data da última compra e não faz nada com ela.</b> O agente sabe quando o pote acaba e chama antes do concorrente aparecer.</p>
+    <div class="acoes">
+      <a class="btn zap" id="cta-heroi" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20agente%20na%20minha%20loja%20de%20suplemento" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Quero ver na minha loja
+      </a>
+      <a class="btn linha" href="#simulador">Simular o que estou perdendo</a>
+    </div>
+
+    <div class="sim rev" id="simulador">
+      <div class="sim-cab">
+        <b>Quanto a sua loja deixa na mesa</b>
+        <span>Mexa nos três números. A conta usa taxas de mercado, não promessa.</span>
+      </div>
+      <div class="sim-corpo">
+        <div class="sim-entrada">
+          <div class="campo">
+            <label for="ped"><b>Pedidos por mês</b></label>
+            <input type="number" id="ped" value="300" min="1" max="99999" inputmode="numeric">
+            <span class="un">pedidos pagos</span>
+          </div>
+          <div class="campo">
+            <label for="tic"><b>Ticket médio</b></label>
+            <input type="number" id="tic" value="180" min="1" max="99999" inputmode="decimal">
+            <span class="un">reais por pedido</span>
+          </div>
+          <div class="campo">
+            <label for="rec"><b>Clientes que voltam</b> a comprar em 3 meses</label>
+            <input type="number" id="rec" value="25" min="0" max="100" inputmode="numeric">
+            <span class="un">% do total (a média do setor fica entre 20 e 30)</span>
+          </div>
+        </div>
+        <div class="sim-saida">
+          <div class="linha-res">
+            <span class="q"><b>Carrinhos abandonados</b>70% dos visitantes que chegam ao carrinho não finalizam</span>
+            <span class="v perde" id="r-carrinho">·</span>
+          </div>
+          <div class="linha-res">
+            <span class="q"><b>Recuperável por WhatsApp</b>a 15%, o piso do que o canal entrega no Brasil</span>
+            <span class="v ganha" id="r-recup">·</span>
+          </div>
+          <div class="linha-res">
+            <span class="q"><b>Clientes que somem</b>compraram uma vez e não voltaram em 3 meses</span>
+            <span class="v perde" id="r-somem">·</span>
+          </div>
+          <div class="linha-res">
+            <span class="q"><b>Recuperável na recompra</b>a 12% de quem é chamado quando o pote acaba</span>
+            <span class="v ganha" id="r-volta">·</span>
+          </div>
+          <div class="total">
+            <div class="lb">Receita adicional por mês</div>
+            <div class="big" id="r-total">·</div>
+            <p id="r-frase">·</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="faz">
+  <div class="wrap">
+    <div class="cab rev"><i>01</i><span class="mono">O que ele faz</span><span class="l"></span></div>
+    <h2 class="rev">Três coisas que sua<br>equipe não dá conta.</h2>
+    <p class="intro rev">Não é chatbot de menu. É um agente que lê o seu catálogo, entende a pergunta escrita como o cliente escreve e responde com o dado real da sua loja.</p>
+    <div class="blocos">
+      <article class="bloco rev">
+        <span class="n">01</span>
+        <div><h3>Atende e ajuda a fechar</h3><p>Prazo, frete, troca, estoque e diferença entre produtos. E usa o argumento que converte em suplemento: preço por dose, não preço do pote.</p></div>
+        <div class="ex"><span class="lb">Cliente:</span> a creatina de 500 não é muito cara?
+<span class="lb">Agente:</span> A de 300 g rende 60 doses e sai <span class="al">R$ 1,50</span> por dose.
+A de 500 g rende 100 e sai <span class="ok">R$ 1,30</span>.
+Por dose, a maior sai 15% mais em conta.</div>
+      </article>
+      <article class="bloco rev">
+        <span class="n">02</span>
+        <div><h3>Recupera o carrinho</h3><p>Três toques com ângulos diferentes: lembrete com o que falta para o frete grátis, dúvida e última chamada com cupom. Com trava de horário, de repetição e teto por dia.</p></div>
+        <div class="ex"><span class="lb">20 min:</span> guardei seu carrinho, faltam <span class="al">R$ 34,20</span> para o frete grátis
+<span class="lb">6 h:</span> ficou alguma dúvida sobre o whey?
+<span class="lb">24 h:</span> última mensagem, cupom VOLTA10 valendo</div>
+      </article>
+      <article class="bloco rev">
+        <span class="n">03</span>
+        <div><h3>Chama quando o pote acaba</h3><p>Calcula a duração pela dose diária da categoria. Funciona já na primeira compra, sem histórico nenhum, que é justamente onde a loja ganha ou perde o cliente.</p></div>
+        <div class="ex"><span class="lb">Whey 900 g</span> ÷ 30 g por dia = <span class="ok">35 dias</span>
+<span class="lb">Creatina 300 g</span> ÷ 5 g por dia = <span class="ok">60 dias</span>
+comprou 09/08 → chamar em <span class="al">08/09</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="travas" style="background:var(--papel2);border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)">
+  <div class="wrap">
+    <div class="cab rev"><i>02</i><span class="mono">Travas da Anvisa</span><span class="l"></span></div>
+    <h2 class="rev">A parte que protege<br>o seu CNPJ.</h2>
+    <p class="intro rev">Suplemento é alimento regulado, e propaganda de suplemento tem limite legal. Uma frase errada dita por um robô é infração sua, não dele. Por isso toda mensagem passa por uma revisão automática antes de sair.</p>
+    <div class="blocos">
+      <article class="bloco rev">
+        <span class="n">✕</span>
+        <div><h3>Bloqueado antes de enviar</h3><p>Promessa de emagrecimento, cura, prevenção de doença e superlativo sem prova. O agente não envia e avisa o motivo.</p></div>
+        <div class="ex"><span class="no">✕ BLOQUEADO</span> "queima gordura e você emagrece 5 kg"
+   promessa estética: "emagrece"
+<span class="no">✕ BLOQUEADO</span> "100% eficaz, sem contraindicação"
+   superlativo sem prova</div>
+      </article>
+      <article class="bloco rev">
+        <span class="n">→</span>
+        <div><h3>Encaminhado para gente</h3><p>Gestante, criança, pessoa com doença, uso junto com medicamento e alergia. O agente nunca arrisca: passa para um humano com o histórico do cliente.</p></div>
+        <div class="ex"><span class="lb">Cliente:</span> sou diabético, posso tomar?
+<span class="lb">Agente:</span> Não posso orientar sobre isso, e prefiro
+ser honesto a arriscar. Quem indica é
+nutricionista ou médico. <span class="al">[chama a loja]</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="escuro" id="planos">
+  <div class="wrap">
+    <div class="cab rev"><i>03</i><span class="mono">Planos</span><span class="l"></span></div>
+    <h2 class="rev">Preço fechado.<br>Garantia de 30 dias.</h2>
+    <p class="intro rev">Conecta pela API da plataforma que você já usa, só com permissão de leitura. Nuvemshop, Shopify, Tray, Loja Integrada, Bling, Tiny e Omie.</p>
+    <div class="planos rev">
+      <div class="plano">
+        <div class="nm">Atende</div>
+        <p class="pra">Para parar de perder venda por demora na resposta</p>
+        <div class="preco">R$ 490<small>/mês</small></div>
+        <div class="setup">Setup R$ 1.990 · 7 dias úteis</div>
+        <ul>
+          <li><svg viewBox="0 0 20 20" fill="currentColor"><path d="M8 14 4 10l1.4-1.4L8 11.2l6.6-6.6L16 6z"/></svg><span><b>Atendimento 24h</b> no WhatsApp com o seu catálogo</span></li>
+          <li><svg viewBox="0 0 20 20" fill="currentColor"><path d="M8 14 4 10l1.4-1.4L8 11.2l6.6-6.6L16 6z"/></svg><span><b>Travas da Anvisa</b> em toda mensagem</span></li>
+          <li><svg viewBox="0 0 20 20" fill="currentColor"><path d="M8 14 4 10l1.4-1.4L8 11.2l6.6-6.6L16 6z"/></svg><span>Transbordo para humano com histórico</span></li>
+          <li><svg viewBox="0 0 20 20" fill="currentColor"><path d="M8 14 4 10l1.4-1.4L8 11.2l6.6-6.6L16 6z"/></svg><span>Número próprio na API oficial do WhatsApp</span></li>
+        </ul>
+        <a class="btn linha" href="https://wa.me/5511971039322?text=Quero%20o%20plano%20Atende%20na%20minha%20loja%20de%20suplemento" target="_blank" rel="noopener">Começar pelo Atende</a>
+      </div>
+      <div class="plano alvo">
+        <span class="fita">Mais escolhido</span>
+        <div class="nm">Atende e Recompra</div>
+        <p class="pra">Para transformar a primeira venda em cliente que volta</p>
+        <div class="preco">R$ 890<small>/mês</small></div>
+        <div class="setup">Setup R$ 3.900 · 15 dias úteis</div>
+        <ul>
+          <li><svg viewBox="0 0 20 20" fill="currentColor"><path d="M8 14 4 10l1.4-1.4L8 11.2l6.6-6.6L16 6z"/></svg><span><b>Tudo do Atende</b></span></li>
+          <li><svg viewBox="0 0 20 20" fill="currentColor"><path d="M8 14 4 10l1.4-1.4L8 11.2l6.6-6.6L16 6z"/></svg><span><b>Carrinho abandonado</b> em três toques com travas</span></li>
+          <li><svg viewBox="0 0 20 20" fill="currentColor"><path d="M8 14 4 10l1.4-1.4L8 11.2l6.6-6.6L16 6z"/></svg><span><b>Recompra pela duração do pote</b>, já na primeira compra</span></li>
+          <li><svg viewBox="0 0 20 20" fill="currentColor"><path d="M8 14 4 10l1.4-1.4L8 11.2l6.6-6.6L16 6z"/></svg><span>Relatório mensal: quem comprou depois de receber</span></li>
+        </ul>
+        <a class="btn zap" href="https://wa.me/5511971039322?text=Quero%20o%20plano%20Atende%20e%20Recompra" target="_blank" rel="noopener">Quero este</a>
+      </div>
+      <div class="plano">
+        <div class="nm">Operação</div>
+        <p class="pra">Para quem quer a loja inteira na mão</p>
+        <div class="preco">R$ 1.990<small>/mês</small></div>
+        <div class="setup">Setup R$ 7.900 · 30 dias úteis</div>
+        <ul>
+          <li><svg viewBox="0 0 20 20" fill="currentColor"><path d="M8 14 4 10l1.4-1.4L8 11.2l6.6-6.6L16 6z"/></svg><span><b>Tudo do Atende e Recompra</b></span></li>
+          <li><svg viewBox="0 0 20 20" fill="currentColor"><path d="M8 14 4 10l1.4-1.4L8 11.2l6.6-6.6L16 6z"/></svg><span><b>Cockpit do Dono</b>: seu resumo às 7h com estoque, clientes e pedidos travados</span></li>
+          <li><svg viewBox="0 0 20 20" fill="currentColor"><path d="M8 14 4 10l1.4-1.4L8 11.2l6.6-6.6L16 6z"/></svg><span>Painéis de venda, produto e cliente</span></li>
+          <li><svg viewBox="0 0 20 20" fill="currentColor"><path d="M8 14 4 10l1.4-1.4L8 11.2l6.6-6.6L16 6z"/></svg><span>Reunião mensal de resultado</span></li>
+        </ul>
+        <a class="btn linha" href="https://wa.me/5511971039322?text=Quero%20o%20plano%20Opera%C3%A7%C3%A3o" target="_blank" rel="noopener">Quero o Operação</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="cab rev"><i>04</i><span class="mono">Perguntas</span><span class="l"></span></div>
+    <h2 class="rev">Sem letra miúda.</h2>
+    <div class="faq rev">
+      <details><summary>Como ele sabe quando chamar o cliente de volta?</summary><p>Ele calcula quanto o pote dura, dividindo a quantidade pela dose diária usual da categoria. Whey de 900 g dura cerca de 35 dias, creatina de 300 g dura 60. Assim ele chama antes de acabar já na primeira compra, sem depender de histórico. A partir da terceira compra, o intervalo real daquele cliente passa a valer mais que a conta do rótulo, porque revela quem toma dose maior ou pula dias.</p></details>
+      <details><summary>Ele pode falar algo proibido sobre suplemento?</summary><p>Toda mensagem passa por revisão automática antes de sair, que bloqueia promessa de emagrecimento, cura, prevenção de doença e superlativo sem prova. Pergunta de gestante, criança, pessoa com doença ou uso com medicamento nunca é respondida pelo agente: ele encaminha para um humano com o histórico do cliente na tela.</p></details>
+      <details><summary>Quanto rende recuperar carrinho por WhatsApp?</summary><p>No Brasil o WhatsApp é aberto por 85 a 98% das pessoas e recupera de 15 a 35% dos carrinhos. Um benchmark realista de automação bem feita fica entre 15 e 25%. O simulador desta página usa 15%, que é o piso, para você não decidir com número otimista.</p></details>
+      <details><summary>Preciso trocar minha plataforma?</summary><p>Não. Ele conecta pela API da plataforma que você já usa, com permissão só de leitura. Nada é alterado na sua loja.</p></details>
+      <details><summary>Isso não vai irritar meu cliente?</summary><p>É o risco real de toda automação, e por isso as travas existem: janela de horário das 9h às 20h, no máximo três toques por carrinho, sem repetir para o mesmo cliente por quinze dias e teto diário na loja inteira. Quem já comprou sai da fila na hora.</p></details>
+      <details><summary>E se eu não gostar?</summary><p>São 30 dias de garantia. Você cancela sem multa e leva o histórico de conversas em arquivo.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2 class="rev">Quer ver na sua loja?</h2>
+    <p class="intro rev">Dez minutos numa chamada. Eu rodo a conta com os seus números reais, na sua frente, e você decide.</p>
+    <a class="btn zap rev" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20agente%20na%20minha%20loja%20de%20suplemento" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Falar com o Rodrigo
+    </a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b>Argos</b> · IA e automação para o comércio · São Paulo, SP</span>
+    <span class="mono">Taxas do simulador: mercado brasileiro, 2026</span>
+    <a href="/">Conheça o Cockpit do Dono ↗</a>
+  </div>
+</footer>
+
+<a class="fab" id="fab" href="https://wa.me/5511971039322?text=Quero%20ver%20o%20agente%20na%20minha%20loja%20de%20suplemento" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+(function(){
+  var d=document,topbar=d.getElementById('topbar'),burger=d.getElementById('burger'),
+      gaveta=d.getElementById('gaveta'),fab=d.getElementById('fab'),heroCta=d.getElementById('cta-heroi');
+  window.addEventListener('scroll',function(){topbar.classList.toggle('fix',(window.scrollY||0)>8);},{passive:true});
+  var ABRE='<svg viewBox="0 0 24 24"><path fill="currentColor" d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>',
+      FECHA='<svg viewBox="0 0 24 24"><path fill="currentColor" d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7l1.4-1.4L10.6 10.6l6.3-6.3z"/></svg>';
+  burger.addEventListener('click',function(){var o=gaveta.classList.toggle('open');burger.setAttribute('aria-expanded',o);burger.innerHTML=o?FECHA:ABRE;});
+  gaveta.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){gaveta.classList.remove('open');burger.innerHTML=ABRE;});});
+  if(heroCta&&'IntersectionObserver' in window){
+    new IntersectionObserver(function(e){fab.classList.toggle('on',!e[0].isIntersecting&&e[0].boundingClientRect.top<0);},{threshold:0}).observe(heroCta);
+  }else{fab.classList.add('on');}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e,i){if(e.isIntersecting){setTimeout(function(){e.target.classList.add('vis');},i*60);io.unobserve(e.target);}});},
+      {rootMargin:'0px 0px -12% 0px',threshold:.08});
+    d.querySelectorAll('.rev').forEach(function(el){io.observe(el);});
+  }else{d.querySelectorAll('.rev').forEach(function(el){el.classList.add('vis');});}
+
+  /* simulador: taxas de mercado, sempre pelo piso */
+  var TAXA_ABANDONO=0.70, RECUP_WPP=0.15, RECUP_RECOMPRA=0.12, MENSAL=890;
+  function n(id){var v=parseFloat(d.getElementById(id).value);return isFinite(v)&&v>0?v:0;}
+  function brl(v){return 'R$ '+Math.round(v).toLocaleString('pt-BR');}
+  function calc(){
+    var ped=n('ped'), tic=n('tic'), rec=Math.min(n('rec'),100);
+    if(!ped||!tic){return;}
+    var carrinhos=ped/(1-TAXA_ABANDONO)*TAXA_ABANDONO,
+        vAband=carrinhos*tic,
+        vRecup=vAband*RECUP_WPP,
+        somem=ped*(1-rec/100),
+        vSomem=somem*tic,
+        vVolta=vSomem*RECUP_RECOMPRA,
+        total=vRecup+vVolta,
+        vezes=total/MENSAL;
+    d.getElementById('r-carrinho').textContent=brl(vAband);
+    d.getElementById('r-recup').textContent='+ '+brl(vRecup);
+    d.getElementById('r-somem').textContent=brl(vSomem);
+    d.getElementById('r-volta').textContent='+ '+brl(vVolta);
+    d.getElementById('r-total').textContent=brl(total);
+    d.getElementById('r-frase').innerHTML='São <b>'+brl(total*12)+' por ano</b>. '+
+      'O plano mais escolhido custa R$ 890 por mês, então ele se paga <b>'+vezes.toFixed(0)+' vezes</b>. '+
+      'A conta usa o piso das taxas de mercado, não o melhor caso.';
+  }
+  ['ped','tic','rec'].forEach(function(id){d.getElementById(id).addEventListener('input',calc);});
+  calc();
+})();
+</script>
+</body>
+</html>
